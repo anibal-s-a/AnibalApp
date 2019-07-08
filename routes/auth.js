@@ -102,5 +102,64 @@ router.get("/confirm/:token", (req, res) => {
 router.get("/profile", (req, res) => {
   res.render("auth/profile", { "message": req.flash("error") });
 });
+router.post('/create-plan', (req, res, next) => {
+  const characters2 = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let token2 = '';
+  for (let i = 0; i < 25; i++) {
+      token2 += characters2[Math.floor(Math.random() * characters2.length )];
+  }
+  Plan
+    .create({
+      
+      title: req.body.title,
+      city: req.body.city,
+      name: req.body.name,
+      date: req.body.date,
+      time: req.body.time,
+      price: req.body.price,
+      confirmationCode: token2,
+      email: [req.body.email],
+
+      location: { 
+        type: 'Point', 
+        coordinates: [+req.body.longitude, +req.body.latitude] 
+      }
+      
+    })
+    .then(() => {
+      transporter.sendMail({
+        from: '"Anibal" <anibalapp2019@gmail.com>',
+        to: [email], 
+        subject: 'You have been invited to a plan!!!', 
+        text: 'You have been invited!',
+        html: `<b>You have been invited to a plan!!!</b> <a href="http://localhost:3000/auth/plan/${token2}">Go to the plan</a>`
+      })
+    .then(planNew => res.render("/plan-detail"))
+    .catch((err)=>{
+      console.log(err)
+    })
+})
+.catch((err)=>{
+  console.log(err)
+})
+});
+router.get("/plan/:token", (req, res) => {
+ 
+  Plan.findOne({confirmationCode:req.params.token})
+  .then((plan)=>{
+   res.render("/auth/plan-detail",{plan});
+    
+  })
+  
+  .catch((err)=>{
+   console.log(err)
+ })
+ 
+ });
+
+ router.get('/create-plan', (req, res, next) => {
+  res.render("/auth/plan-detail")
+});
+
 
 module.exports = router;
