@@ -4,6 +4,7 @@ const express = require("express");
 const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
+const Plan = require("../models/Plan");
 const nodemailer = require("nodemailer")
 
 // Bcrypt to encrypt passwords
