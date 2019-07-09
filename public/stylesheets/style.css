@@ -1,11 +1,80 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: whitesmoke;
+  background-color: white;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
-a {
-  color: #00b7ff; }
+#main {
+  background-size: cover;
+  position: relative;
+  left: 20px; }
+
+#d1 {
+  height: 250px;
+  width: 250px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 150px;
+  background-image: url("https://res.cloudinary.com/dumuchjet/image/upload/v1562701361/Granada_eux0pq.jpg");
+  background-size: 1434px 926px;
+  background-position: 0px -150px;
+  z-index: 2; }
+
+#d2 {
+  height: 500px;
+  width: 500px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 80px;
+  left: 100px;
+  background-image: url("https://res.cloudinary.com/dumuchjet/image/upload/v1562701361/Granada_eux0pq.jpg");
+  background-size: 1434px 926px;
+  background-position: -100px -80px;
+  z-index: 1; }
+
+#d3 {
+  height: 650px;
+  width: 600px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0px;
+  left: 300px;
+  background-image: url("https://res.cloudinary.com/dumuchjet/image/upload/v1562701361/Granada_eux0pq.jpg");
+  background-size: 1434px 926px;
+  background-position: -300px 0px;
+  z-index: 3; }
+
+#d4 {
+  height: 400px;
+  width: 400px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 5px;
+  left: 700px;
+  background-image: url("https://res.cloudinary.com/dumuchjet/image/upload/v1562701361/Granada_eux0pq.jpg");
+  background-size: 1434px 926px;
+  background-position: -700px -5px;
+  z-index: 1; }
+
+#inicio {
+  height: auto;
+  width: auto;
+  border-right: 3px solid white;
+  text-align: right;
+  font-family: fantasy;
+  font-size: 45px;
+  letter-spacing: 5px;
+  color: white;
+  position: absolute;
+  top: 200px;
+  right: 100px;
+  z-index: 99; }
+
+#inicio a {
+  text-decoration: none; }
+
+#inicio a:hover {
+  color: #6ac0eb; }
 
 .wrap {
   width: 70%;
@@ -159,6 +228,26 @@ button:hover {
   border: none;
   border-radius: 30px;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); }
+
+.btn-plan {
+  margin-top: 20px;
+  margin-left: 15px;
+  text-align: center;
+  border: none;
+  width: 300px;
+  height: 40px;
+  outline: none;
+  border-radius: 20px;
+  color: #fff;
+  background: #f5bbd2; }
+
+.btn-plan a {
+  text-decoration: none;
+  font-size: 30px;
+  cursor: pointer; }
+
+.btn-plan a:hover {
+  color: #03a9f4; }
 
 .box3 {
   margin: 20px 20px;
