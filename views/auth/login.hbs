@@ -1,54 +1,41 @@
+<div class="wrap">
+  <div class="loginBox">
+    <h2>Login</h2>
 
-<h2>Login</h2>
+    <form action="/auth/login" method="POST" id="form-container">
+      <label for="username">Username</label>
+      <input id="username" type="text" name="username" placeholder="user-name">
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="user-name">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" placeholder="password">
 
-  <br><br>
+      {{#if message }}
+      <div class="error-message">{{ message }}</div>
+      {{/if}}
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="password">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+      <button>Login</button>
 
-  <br><br>
+    </form>
+  </div>
+  <div class="loginBox">
+    <h2>Signup</h2>
 
-  <button>Login</button>
+    <form action="/auth/signup" method="POST" id="form-container">
+      <label for="username">Username</label>
+      <input id="username" type="text" name="username" placeholder="user-name">
 
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-</form>
-<h2>Signup</h2>
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" placeholder="email">
 
-<form action="/auth/signup" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="user-name">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" placeholder="password">
 
-  <br><br>
-  <label for="email">Email</label>
-  <input id="email" type="email" name="email" placeholder="email">
-  <br><br>
+      {{#if message }}
+      <div class="error-message">{{ message }}</div>
+      {{/if}}
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="password">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+      <button>Create account</button>
 
-  <br><br>
-
-  <button>Create account</button>
-
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p>
-</form>
-
-
+    </form>
+  </div>
+</div>
