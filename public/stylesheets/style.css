@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: antiquewhite;
+  background-color: whitesmoke;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
@@ -147,5 +147,74 @@ button:hover {
   padding: 10px, 20px;
   border-radius: 10px;
   cursor: pointer; }
+
+.box-profile {
+  display: flex;
+  position: relative;
+  align-content: space-between;
+  width: 400px;
+  height: 400px;
+  background: #c4e6f7;
+  background: transparent;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); }
+
+.box3 {
+  margin: 20px 20px;
+  padding: 15px;
+  display: flex;
+  position: relative;
+  align-content: space-between;
+  justify-content: space-around; }
+
+.box3 h2 {
+  margin-top: 15px;
+  margin-left: 65px;
+  text-align: center; }
+
+.datos-photos {
+  display: flex;
+  margin: 10px 10px;
+  padding: 15px; }
+
+.datos-photos h2 {
+  margin: 0 0 30px;
+  padding-right: 30px;
+  color: #ee1010;
+  text-align: center; }
+
+.datos-photos input[type="text"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px; }
+
+.datos-photos input[type="submit"] {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #074126;
+  padding: 10px, 20px;
+  border-radius: 15px;
+  cursor: pointer; }
+
+#user-profile {
+  display: flex; }
+
+#user-profile h1 {
+  font-size: 40px;
+  padding-left: 20px; }
+
+#user-profile img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 25px; }
 
 /*# sourceMappingURL=style.css.map */
