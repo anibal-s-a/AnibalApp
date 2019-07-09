@@ -1,0 +1,49 @@
+<h2>Create New Plan</h2>
+
+<div class="box">
+  <h2>Create your Plan</h2>
+
+  <form action="/auth/createPlan" method="POST" id="form-container">
+
+    <div class="inputBox">
+      <label for="creator">Creator</label>
+      <input id="creator" type="text" name="creator" placeholder="creator"></div>
+
+    <div class="inputBox">
+      <label for="title">Name</label>
+      <input id="title" type="text" name="title" placeholder="title"></div>
+
+    <div class="inputBox">
+      <label for="location">Location</label>
+      <input id="location" type="" name="location" placeholder="location"></div>
+
+    <div class="inputBox">
+      <label for="address">Address</label>
+      <input id="address" type="text" name="address" placeholder="address"></div>
+
+    <div class="inputBox">
+      <label for="date">Date</label>
+      <input id="date" type="date/data" name="date" placeholder="date"></div>
+
+    <div class="inputBox">
+      <label for="time">Time</label>
+      <input id="time" type="text" name="time" placeholder="time"></div>
+
+    <div class="inputBox">
+      <label for="price">Price</label>
+      <input id="price" type="text/number" name="price" placeholder="price"></div>
+
+    <div class="inputBox">
+      <label for="invites">Invites</label>
+      <input id="invites" type="text" name="invites" placeholder="invites">
+    </div>
+
+  
+    {{#if message }}
+    <div class="error-message">{{ message }}</div>
+    {{/if}}
+
+    <button>Create plan and Enjoy!!</button>
+
+  </form>
+</div>

@@ -24,6 +24,7 @@ router.get("/login", (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });
 });
 
+
 router.post("/login", passport.authenticate("local", {
   successRedirect: "/auth/profile",
   failureRedirect: "/auth/login",
@@ -107,5 +108,11 @@ router.get("/confirm/:token", (req, res) => {
 router.get("/profile", (req, res) => {
   res.render("auth/profile", {user: req.user});
 });
+router.get("/create-plan", (req, res) => {
+  res.render("auth/create-plan", {user: req.user});
+});
+
+
+
 
 module.exports = router;
