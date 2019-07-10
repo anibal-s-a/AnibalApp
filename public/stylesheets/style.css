@@ -216,7 +216,6 @@ button:hover {
   border-radius: 10px;
   cursor: pointer; }
 
-
 .box-profile {
   display: flex;
   position: relative;
@@ -335,5 +334,44 @@ button:hover {
   overflow: hidden;
   margin-left: 25px; }
 
-/*# sourceMappingURL=style.css.map */
+.container {
+  height: 100px;
+  width: 300px;
+  background: #ecfbff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 50% 50%; }
 
+.container > div {
+  text-align: center; }
+
+.container > div:hover {
+  cursor: pointer; }
+
+.left {
+  background: #c066b1; }
+
+.right {
+  background: #61a5ff; }
+
+.text {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  user-select: none; }
+
+.option-title {
+  color: white; }
+
+.option-size {
+  color: white;
+  font-size: 20px; }
+
+/*# sourceMappingURL=style.css.map */
