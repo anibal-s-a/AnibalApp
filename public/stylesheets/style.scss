@@ -267,17 +267,65 @@ button:hover {
 }
 
 .btn-plan{
-  margin-top: 20px;
-  margin-left: 15px;
-  text-align: center;
-  border: none;
-  width: 300px;
-  height: 40px;
-  outline: none;
-  border-radius: 20px;
+  position: relative;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 80px;
+  background: #58ea00;
   color: #fff;
-  background: #f5bbd2;
+  border-radius: 50%;
+  text-align: center;
+  // line-height: 80px; // si metemos icono 
+  font-size: 48px;
 }
+
+.btn-plan:before,
+.btn-plan:after{
+content: '';
+display: block;
+position: absolute;
+border: 50%;
+border: 1px solid #58ea00;
+left: -20px;
+right:-20px;
+top: -20px;
+bottom: -20px;
+border-radius: 50%;
+animation: animate 1.5s linear infinite;
+opacity: 0;
+}
+
+.btn-plan:after{
+  animation-delay: .5s;
+}
+
+@keyframes animate{
+  0%{
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+  100%{
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+// .btn-plan{
+//   // margin-top: 20px;
+//   // margin-left: 15px;
+//   // text-align: center;
+//   // border: none;
+//   // width: 300px;
+//   // height: 40px;
+//   // outline: none;
+//   // border-radius: 20px;
+//   // color: #fff;
+//   // background: #f5bbd2;
+// }
 
 .btn-plan a{
   // padding-left: 30px;
