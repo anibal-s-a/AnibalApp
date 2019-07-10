@@ -1,30 +1,33 @@
-<header id="user-profile">
-  <div>
-    <h1>Welcome {{user.username}}</h1>
-    <img class="img" src="{{user.photo}}" alt="profile-img" />
-    {{!-- <img scr={{this.photo}} alt="" /> --}}
-    {{!-- {{this.userphoto}} --}}
+<div>
+  <header id="user-profile">
+    <div>
+      <h1>Welcome {{user.username}}</h1>
+      <img class="img" src="{{user.photo}}" alt="ImgPerfil"/>
+    </div>
+  </header>
+
+  <div><a href="/auth/create-plan" class="btn-plan"></a></div>
+
+  <section class="datos-photos">
+    <h2>Upload your photo</h2>
+    <form action="/auth/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="photo">
+      <input type="submit" value="Save">
+    </form>
+  </section>
+  <div class="box3">
+    <section class="box-profile">
+      <h2>Past Plan</h2>
+    </section>
+
+    <section class="box-profile">
+      <h2>Top Rated Plan</h2>
+    </section>
+
+
+    <section class="box-profile">
+      <h2>Future Plans</h2>
+    </section>
   </div>
-</header>
+</div>
 
-<section>
-<h2>Upload your photo</h2>
-<form action="/upload" method="POST" enctype="multipart/form-data">
-  <input type="text" name="name">
-  <input type="file" name="photo">
-  <input type="submit" value="Save">
-</form>
-</section>
-
-<section>
-  <h2>Past Plan</h2>
-
-</section>
- {{!-- <ul id="">
-    {{!-- poner el nombre de referencia en each --}}
-    {{#each plans}}
-    <a><a href="/auth/profile/">{{this.name}}</a> <a href="{{this.}}"></a></a>
-    {{/each}}
-  </ul>
-<span>Created at: {{created_at}}</span> --}}
-<a href="/auth/create-plan">create-plan</a>

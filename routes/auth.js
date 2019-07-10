@@ -5,7 +5,13 @@ const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
 const Plan = require("../models/Plan");
-const nodemailer = require("nodemailer")
+const nodemailer = require("nodemailer");
+const uploadCloud = require('../config/cloudinary.js')
+const multer = require('multer');
+
+// //Social Instagram:
+// const InstagramStrategy = require('passport-instagram').Strategy;
+
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -40,15 +46,16 @@ router.post("/login", passport.authenticate("local", {
 //   res.render("auth/signup");
 // });
 
-router.post("/signup", (req, res, next) => {
+router.post("/signup", uploadCloud.single('photo'), (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;
+  const photo = "https://res.cloudinary.com/dumuchjet/image/upload/v1562253068/sample.jpg";
   const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-let token = '';
-for (let i = 0; i < 25; i++) {
-    token += characters[Math.floor(Math.random() * characters.length )];
-}
+  let token = '';
+  for (let i = 0; i < 25; i++) {
+    token += characters[Math.floor(Math.random() * characters.length)];
+  }
   if (username === "" || password === "") {
     res.render("auth/login", { message: "Indicate username and password" });
     return;
@@ -67,46 +74,70 @@ for (let i = 0; i < 25; i++) {
       username,
       password: hashPass,
       email: email,
+      photo,
       confirmationCode: token
     });
 
     newUser.save()
-    .then(() => {
-      transporter.sendMail({
-        from: '"Anibal" <anibalapp2019@gmail.com>',
-        to: email, 
-        subject: 'Anibal Sign Up', 
-        text: 'Confirmation Email',
-        html: `<b>Thanks for signing in to Anibal. Enjoy creating plans with friends</b> <a href="http://localhost:3000/auth/confirm/${token}">Confirm email address</a>`
+      .then(() => {
+        transporter.sendMail({
+          from: '"Anibal" <anibalapp2019@gmail.com>',
+          to: email,
+          subject: 'Anibal Sign Up',
+          text: 'Confirmation Email',
+          html: `<b>Thanks for signing in to Anibal. Enjoy creating plans with friends</b> <a href="http://localhost:3000/auth/confirm/${token}">Confirm email address</a>`
+        })
+          .then(info => console.log(info))
+          .catch(error => console.log(error))
+        res.redirect("/");
       })
-      .then(info => console.log(info))
-      .catch(error => console.log(error))
-      res.redirect("/");
-    })
-    .catch(err => {
-      res.render("auth/signup", { message: "Something went wrong" });
-    })
+      .catch(err => {
+        res.render("auth/signup", { message: "Something went wrong" });
+      })
   });
 });
+
+router.get('/instagram',
+  passport.authenticate('instagram'));
+
+router.get('/instagram/callback',
+  passport.authenticate('instagram', { failureRedirect: '/login' }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/auth/profile');
+  });
 
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
 router.get("/confirm/:token", (req, res) => {
- 
- User.findOneAndUpdate({confirmationCode:req.params.token},{$set:{status:"Active"}},{new:true})
- .then((user)=>{
-  res.redirect("/auth/login");
-   console.log("user activated")
- })
- .catch((err)=>{
-  console.log(err)
-})
+
+  User.findOneAndUpdate({ confirmationCode: req.params.token }, { $set: { status: "Active" } }, { new: true })
+    .then((user) => {
+      res.redirect("/auth/login");
+      console.log("user activated")
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 
 });
 router.get("/profile", (req, res) => {
-  res.render("auth/profile", {user: req.user});
+  res.render("auth/profile", { user: req.user });
+});
+
+router.post("/upload", uploadCloud.single('photo'), (req, res, next) => {
+  User
+    .findOneAndUpdate({ _id: req.user._id }, { photo: req.file.url }, { new: true })
+    .then((user) => {
+      res.redirect("/")
+    }).catch((err) => console.log(err))
+});
+
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
 });
 router.get("/create-plan", (req, res) => {
   res.render("auth/create-plan", {user: req.user});
