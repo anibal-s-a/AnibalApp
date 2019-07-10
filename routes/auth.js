@@ -132,7 +132,7 @@ router.post('/createPlan', (req, res, next) => {
       price: req.body.price,
       confirmationCode: token2,
       email: req.body.email,
-
+      
       location: { 
         type: 'Point', 
         coordinates: [+req.body.longitude, +req.body.latitude] 
