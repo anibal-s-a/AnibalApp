@@ -7,6 +7,7 @@ const planSchema = new Schema(
     title: String,
     city : String,
     invites: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    email: String,
     date: Date,
     time: String,
     alternatives : [{ type: Schema.Types.ObjectId, ref: "Alternative" }],
@@ -19,7 +20,7 @@ const planSchema = new Schema(
       enum: ["Pending Vote", "Vote Passed","Vote Failed"],
       default: "Pending Vote"
     },
-    confirmationCode: [{ type: String }, { unique: true }],
+    confirmationCode: { type: String , unique: true },
     email: [String]
   },
   {

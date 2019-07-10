@@ -216,6 +216,7 @@ button:hover {
   border-radius: 10px;
   cursor: pointer; }
 
+
 .box-profile {
   display: flex;
   position: relative;
@@ -335,3 +336,4 @@ button:hover {
   margin-left: 25px; }
 
 /*# sourceMappingURL=style.css.map */
+

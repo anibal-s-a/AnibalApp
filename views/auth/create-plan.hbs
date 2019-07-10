@@ -1,0 +1,54 @@
+
+
+
+
+
+<h2>Create New Plan</h2>
+
+<div class="box">
+  <h2>Create your Plan</h2>
+
+  <form action="/auth/createPlan" method="POST" id="form-container">
+
+    <div class="boxFormMap">
+      <label for="title">title</label>
+      <input id="title" type="text" name="title" placeholder="title" value="hola"></div>
+
+    <div class="boxFormMap">
+      <label for="city">Name</label>
+      <input id="city" type="text" name="city" placeholder="city" value="madrid"></div>
+
+    <div class="boxFormMap">
+      <label for="date">date</label>
+      <input id="date" type="date" name="date" placeholder="date" ></div>
+
+    <div class="boxFormMap">
+      <label for="time">time</label>
+      <input id="time" type="time" name="time" placeholder="time" value="22:30"></div>
+
+    <div class="boxFormMap">
+      <label for="Price">Price</label>
+      <input id="Price" type="number" name="Price" placeholder="Price" value="50"></div>
+      <div class="boxFormMap">
+        <label for="latitude">Latitude</label>
+      <input type="text" name="latitude" placeholder="latitude" value="303030" >
+      <label for="longitude">Longitude</label>
+  <input type="text" name="longitude" placeholder="longitude" value="209039" >
+  </div>
+
+    <div class="boxFormMap">
+      <label for="email">invite</label>
+      <input id="myEmail" type="email" name="email" placeholder="email" value="carlos@riverette.com"></div>
+
+   
+
+  
+    {{#if message }}
+    <div class="error-message">{{ message }}</div>
+    {{/if}}
+
+    <button>Create plan and Enjoy!!</button>
+
+  </form>
+</div>
+
