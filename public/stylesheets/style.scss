@@ -273,9 +273,9 @@ button:hover {
   transform: translate(-50%, -50%);
   width: 200px;
   height: 80px;
-  background: #58ea00;
-  color: #fff;
-  border-radius: 50%;
+  background: #181717;
+  color: rgb(226, 223, 223);
+  border-radius: 20%;
   text-align: center;
   // line-height: 80px; // si metemos icono 
   font-size: 48px;
@@ -283,11 +283,11 @@ button:hover {
 
 .btn-plan:before,
 .btn-plan:after{
-content: '';
+content: 'create';
 display: block;
 position: absolute;
 border: 50%;
-border: 1px solid #58ea00;
+border: 1px solid #c5cfbe;
 left: -20px;
 right:-20px;
 top: -20px;
