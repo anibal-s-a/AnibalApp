@@ -9,6 +9,10 @@ const nodemailer = require("nodemailer");
 const uploadCloud = require('../config/cloudinary.js')
 const multer = require('multer');
 
+// //Social Instagram:
+// const InstagramStrategy = require('passport-instagram').Strategy;
+
+
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
@@ -92,6 +96,16 @@ router.post("/signup", uploadCloud.single('photo'), (req, res, next) => {
   });
 });
 
+router.get('/instagram',
+  passport.authenticate('instagram'));
+
+router.get('/instagram/callback',
+  passport.authenticate('instagram', { failureRedirect: '/login' }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/auth/profile');
+  });
+
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
@@ -114,7 +128,7 @@ router.get("/profile", (req, res) => {
 
 router.post("/upload", uploadCloud.single('photo'), (req, res, next) => {
   User
-    .findOneAndUpdate({_id: req.user._id }, { photo: req.file.url },{new: true})
+    .findOneAndUpdate({ _id: req.user._id }, { photo: req.file.url }, { new: true })
     .then((user) => {
       res.redirect("/")
     }).catch((err) => console.log(err))
