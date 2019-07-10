@@ -4,6 +4,53 @@ body {
   background-color: white;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
+/* haciendo la nav-bar */
+nav ul {
+  margin: 15px 20px;
+  padding: 0;
+  display: flex; }
+
+nav ul li {
+  list-style: none;
+  padding: 10px 20px; }
+
+nav ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 2em;
+  color: #262626;
+  position: relative; }
+
+nav ul li a:before {
+  content: "";
+  width: 10px;
+  height: 3px;
+  background: #88f0fa;
+  position: absolute;
+  top: 120%;
+  left: 0%;
+  transition: 0.5s;
+  mix-blend-mode: multiply; }
+
+nav ul li a:after {
+  content: "";
+  width: 0px;
+  height: 3px;
+  background: #fb83fb;
+  position: absolute;
+  top: 120%;
+  left: 0%;
+  transition: 0.5s;
+  mix-blend-mode: multiply; }
+
+nav ul li:hover a:before {
+  width: 50%;
+  transform: translateX(100%); }
+
+nav ul li:hover a:after {
+  width: 100%;
+  transform: translateX(-10%); }
+
 #main {
   background-size: cover;
   position: relative;
@@ -162,10 +209,10 @@ button:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  height: 100px;
-  background: rgba(0, 0, 0, 0.8);
+  height: 700px;
+  background: rgba(224, 221, 221, 0.8);
   box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 15px 25px rgba(2, 2, 2, 0.6);
   border-radius: 10px; }
 
 .box h2 {
@@ -177,7 +224,7 @@ button:hover {
 .box .inputBox {
   position: relative; }
 
-.box .inputBox input {
+.inputBox input {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
@@ -189,7 +236,7 @@ button:hover {
   outline: none;
   background: transparent; }
 
-.box .inputBox label {
+.inputBox label {
   position: absolute;
   top: 0;
   left: 0;
@@ -222,6 +269,9 @@ button:hover {
   align-content: space-between;
   width: 400px;
   height: 400px;
+  top: 50%;
+  left: 40%;
+  justify-content: space-around;
   background: #c4e6f7;
   background: transparent;
   border: none;
@@ -243,7 +293,7 @@ button:hover {
 
 .btn-plan:before,
 .btn-plan:after {
-  content: 'create';
+  content: "create";
   display: block;
   position: absolute;
   border: 50%;
@@ -257,7 +307,7 @@ button:hover {
   opacity: 0; }
 
 .btn-plan:after {
-  animation-delay: .5s; }
+  animation-delay: 0.5s; }
 
 @keyframes animate {
   0% {
@@ -334,8 +384,6 @@ button:hover {
   overflow: hidden;
   margin-left: 25px; }
 
-<<<<<<< HEAD
-=======
 .container {
   height: 100px;
   width: 300px;
@@ -376,5 +424,4 @@ button:hover {
   color: white;
   font-size: 20px; }
 
->>>>>>> 6d2989df3c05783160f1ce31c92afff3306cdd24
 /*# sourceMappingURL=style.css.map */
