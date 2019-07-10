@@ -62,7 +62,7 @@ body {
   border-right: 3px solid white;
   text-align: right;
   font-family: fantasy;
-  font-size: 45px;
+  font-size: 40px;
   letter-spacing: 5px;
   color: white;
   position: absolute;
@@ -74,7 +74,7 @@ body {
   text-decoration: none; }
 
 #inicio a:hover {
-  color: #6ac0eb; }
+  color: #229edb; }
 
 .wrap {
   width: 70%;
@@ -83,7 +83,6 @@ body {
   justify-content: space-around; }
 
 .loginBox {
-  display: flex;
   position: relative;
   top: 50%;
   left: 50%;
