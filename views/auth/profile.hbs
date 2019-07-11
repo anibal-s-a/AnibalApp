@@ -1,4 +1,4 @@
-<div>
+{{!-- <div>
   <header id="user-profile">
     <div>
       <h1>Welcome {{user.username}}</h1>
@@ -15,18 +15,87 @@
       <input type="submit" value="Save">
     </form>
   </section>
+</div> --}}
 
-  <div class="box3">
-    <section class="box-profile">
-      <h2>Past Plan</h2>
-    </section>
+{{!-- enlace para ir al pagina de la lsita de planes creados:
 
-    <section class="box-profile">
-      <h2>Top Rated Plan</h2>
-    </section>
+<div><a href='/auth/created-list/{{user._id}}'>Crated-List</a></div> --}}
 
-    <section class="box-profile">
-      {{!-- <h2>Future Plans {{#each user}}</h2> --}}
-    </section>
+{{!-- *****************
+prueba de perfil chulo***
+*********** --}}
+{{!-- <h2>{{user.photo}}</h2> --}}
+
+
+<div class="cont-profile">
+  <div>
+    <img class="circle" src="{{user.photo}}" alt="ImgPerfil" />
+    {{!-- <h1>Welcome {{user.username}}</h1> --}}
+    <p>Lorem ipsum dolor sit ametconsectetur adipisicing elit. Neque modi non a</p>
+
+    <h2>Upload your photo</h2>
+    <form action="/auth/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="photo">
+      <input type="submit" value="Save">
+    </form>
+    <div><a href="/auth/create-plan" class="btn-plan"></a></div>
+
+    {{!-- </section> --}}
   </div>
 </div>
+<div>
+  {{!-- <a href="/auth/create-plan" class="btn-plan"></a></div> --}}
+
+  {{!-- prueba de tarejetas por 3
+************************* --}}
+  <div class="box-cards">
+    <div class="card">
+      <div class="face face1">
+        <div class="content-card">
+          <h3>Past Plans</h3>
+        </div>
+      </div>
+      <div class="face face2">
+        <div class="content-card">
+          <ul>
+            {{#each allPlans}}
+            <div>
+              <li>{{this.title}}</li>
+              <li>{{this.city}}</li>
+            </div></br>
+            {{/each}}
+          </ul>
+          <a href="#">Enlace a Ultratumba</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="card">
+      <div class="face face1">
+        <div class="content-card">
+          <h3>Top Rated Plan</h3>
+        </div>
+      </div>
+      <div class="face face2">
+        <div class="content-card">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui!</p>
+          <a href="#">Enlace a Ultratumba</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="card">
+      <div class="face face1">
+        <div class="content-card">
+          <h3>Future Plans</h3>
+        </div>
+      </div>
+      <div class="face face2">
+        <div class="content-card">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui!</p>
+          <a href="#">Enlace a Ultratumba</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
