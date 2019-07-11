@@ -156,6 +156,7 @@ router.post('/createPlan', (req, res, next) => {
     .create({
       createdBy : author,
       title: req.body.title,
+      address:req.body.address,
       city: req.body.city,
       name: req.body.name,
       date: req.body.date,
@@ -164,10 +165,10 @@ router.post('/createPlan', (req, res, next) => {
       confirmationCode: token2,
       email: req.body.email,
       
-      location: { 
-        type: 'Point', 
-        coordinates: [+req.body.longitude, +req.body.latitude] 
-      }
+      // location: { 
+      //   type: 'Point', 
+      //   coordinates: [+req.body.longitude, +req.body.latitude] 
+      // }
       
       
     })

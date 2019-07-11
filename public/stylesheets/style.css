@@ -374,4 +374,9 @@ button:hover {
   color: white;
   font-size: 20px; }
 
+#map {
+  height: 450px;
+  width: 450px;
+  margin-top: 100px; }
+
 /*# sourceMappingURL=style.css.map */
