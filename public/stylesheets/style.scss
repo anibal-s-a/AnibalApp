@@ -144,21 +144,6 @@ nav ul li:hover a:after {
   justify-content: space-around;
 }
 
-// .loginBox {
-//   position: relative;
-//   // position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-90%, 30%);
-//   width: 400px;
-//   height: 520px;
-//   padding: 80px 40px;
-//   box-sizing: border-box;
-//   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
-//   border-radius: 10px;
-//   background: rgba(54, 78, 112, 0.4);
-// }
-
 #photo {
   width: 100px;
   height: 100px;
@@ -197,22 +182,6 @@ button .instagram {
   font-weight: bold;
   text-decoration: none;
 }
-
-/*profile page*/
-// .box {
-//   display: flex;
-//   position: column;
-//   // position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   width: 900px;
-//   height: 700px;
-//   // background: rgba(224, 221, 221, 0.8);
-//   box-sizing: border-box;
-//   box-shadow: 0 15px 25px rgba(2, 2, 2, 0.6);
-//   border-radius: 10px;
-// }
 
 .box h2 {
   margin: 0 0 30px;
@@ -316,18 +285,6 @@ button .instagram {
     opacity: 0;
   }
 }
-// .btn-plan{
-//   // margin-top: 20px;
-//   // margin-left: 15px;
-//   // text-align: center;
-//   // border: none;
-//   // width: 300px;
-//   // height: 40px;
-//   // outline: none;
-//   // border-radius: 20px;
-//   // color: #fff;
-//   // background: #f5bbd2;
-// }
 
 .btn-plan a {
   // padding-left: 30px;
@@ -335,9 +292,7 @@ button .instagram {
   font-size: 30px;
   cursor: pointer;
 }
-// .btn-plan a:hover {
-//   color: #03a9f4;
-// }
+
 .box3 {
   margin: 20px 20px;
   padding: 15px;
@@ -352,55 +307,7 @@ button .instagram {
   margin-left: 65px;
   text-align: center;
 }
-// .datos-photos {
-//   display: flex;
-//   margin: 10px 10px;
-//   padding: 15px;
-// }
 
-// .datos-photos h2 {
-//   margin: 0 0 30px;
-//   padding-right: 30px;
-//   color: rgb(238, 16, 16);
-//   text-align: center;
-// }
-
-// .datos-photos input[type="text"] {
-//   border: none;
-//   border-bottom: 1px solid #fff;
-//   background: transparent;
-//   outline: none;
-//   height: 40px;
-//   color: #fff;
-//   font-size: 16px;
-// }
-
-// .datos-photos input[type="submit"] {
-//   background: transparent;
-//   border: none;
-//   outline: none;
-//   color: #fff;
-//   background: #074126;
-//   padding: 10px, 20px;
-//   border-radius: 15px;
-//   cursor: pointer;
-// }
-// #user-profile {
-//   display: flex;
-// }
-
-// #user-profile h1 {
-//   font-size: 40px;
-//   padding-left: 20px;
-// }
-// #user-profile img {
-//   width: 150px;
-//   height: 150px;
-//   border-radius: 50%;
-//   overflow: hidden;
-//   margin-left: 25px;
-//   // position: absolute;
-// }
 .container {
   height: 100px;
   width: 300px;
@@ -519,13 +426,6 @@ h3 {
 ::placeholder {
   color: rgba(0, 0, 0, 0.5);
 }
-// .inputBox {
-//   position: relative;
-// }
-
-// button {
-//   cursor: pointer;
-// }
 
 /*********************/
 /*****final prueba login*/
