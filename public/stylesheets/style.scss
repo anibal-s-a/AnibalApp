@@ -63,7 +63,9 @@ nav ul li:hover a:after {
   // background-image: url('https://res.cloudinary.com/dumuchjet/image/upload/v1562701361/Granada_eux0pq.jpg');
   background-size: cover;
   position: relative;
-  left: 20px;
+  margin-left: 40px;
+  margin-top: 35px;
+  // left: 10px;
   // top:20px;
 }
 
@@ -133,10 +135,11 @@ nav ul li:hover a:after {
 
 #inicio a {
   text-decoration: none;
+  color: #8bcef8;
 }
 
 #inicio a:hover {
-  color: #229edb;
+  color: #1277aa;
 }
 .wrap {
   width: 100%;

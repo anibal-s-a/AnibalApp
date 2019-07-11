@@ -1,8 +1,6 @@
 {{!-- *****************
 prueba de perfil chulo***
 *********** --}}
-{{!-- <h2>{{user.photo}}</h2> --}}
-
 
 <div class="cont-profile">
   <div>
@@ -36,9 +34,9 @@ prueba de perfil chulo***
           <ul>
             {{#each allPlans}}
             <div>
-              <li>{{this.title}}</li>
-              <li>{{this.city}}</li>
-            </div></br>
+              <li>{{ this.title }}</li>
+              <li>{{ this.status }}</li>
+            </div>
             {{/each}}
           </ul>
           <a href="#">Enlace a Ultratumba</a>

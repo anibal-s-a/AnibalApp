@@ -55,7 +55,8 @@ nav ul li:hover a:after {
 #main {
   background-size: cover;
   position: relative;
-  left: 20px; }
+  margin-left: 40px;
+  margin-top: 35px; }
 
 #d1 {
   height: 250px;
@@ -119,10 +120,11 @@ nav ul li:hover a:after {
   z-index: 99; }
 
 #inicio a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #8bcef8; }
 
 #inicio a:hover {
-  color: #229edb; }
+  color: #1277aa; }
 
 .wrap {
   width: 100%;
@@ -162,7 +164,6 @@ button .instagram {
   font-weight: bold;
   text-decoration: none; }
 
-/*profile page*/
 .box h2 {
   margin: 0 0 30px;
   padding: 0;

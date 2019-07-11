@@ -134,7 +134,7 @@ router.post("/upload", uploadCloud.single('photo'), (req, res, next) => {
   User
     .findOneAndUpdate({ _id: req.user._id }, { photo: req.file.url }, { new: true })
     .then((user) => {
-      res.redirect("/")
+      res.redirect('/auth/profile')
     }).catch((err) => console.log(err))
 });
 
