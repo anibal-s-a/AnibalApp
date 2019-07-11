@@ -27,17 +27,17 @@
       <input id="time" type="time" name="time" placeholder="time" value="22:30"></div>
       <div>
         <label for="search">Search Location</label>
-        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box" name="address">
       </div>
 
     <div class="boxFormMap">
       <label for="Price">Price</label>
       <input id="Price" type="number" name="Price" placeholder="Price" value="50"></div>
       <div class="boxFormMap">
-        <label for="latitude">Latitude</label>
+        {{!-- <label for="latitude">Latitude</label>
       <input type="text" name="latitude" placeholder="latitude" value="" id="lat" >
       <label for="longitude">Longitude</label>
-  <input type="text" name="longitude" placeholder="longitude" value="" id="lng"  >
+  <input type="text" name="longitude" placeholder="longitude" value="" id="lng"  > --}}
   </div>
 
     <div class="boxFormMap">
@@ -75,7 +75,7 @@
 
       function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -33.8688, lng: 151.2195},
+          center: {lat: 40.4165000, lng: -3.7025600},
           zoom: 13,
           mapTypeId: 'roadmap'
         });
