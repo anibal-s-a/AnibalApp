@@ -1,35 +1,33 @@
 <body onload="start()">
-{{!-- <h2>this is a hola</h2> --}}
+  <div>
+    <aside>
+<img src="{{newPlan.createdBy.photo}}" alt="" height="100px" width="100px"></aside>
 <h2>{{newPlan.createdBy.username}}</h2>
+<h2><span id="statusPlan">{{newPlan.status}}</span></h2>
+<h2>Voted Yes : <span id="votesYes" >{{newPlan.votedYes}}</span></h2>
+<h2>Voted No : <span id="votesNo" >{{newPlan.votedNo}}</span></h2>
+ <span id="voteResult" class="success"></span>
+ <span id="voteResult1" class="fail"></span>
 <h2>{{newPlan.title}}</h2>
 <h2>{{newPlan.name}}</h2>
 <h2>{{newPlan.date}}</h2>
+<h2 id="maxVote">{{newPlan.maxVotes}} </h2>
 
-{{!-- <h3><span id="lat">{{newPlan.location.coordinates.[0]}}</span> / <span id="lng">{{newPlan.location.coordinates.[1]}}</span></h3> --}}
+
+
 <h2 id="address">{{newPlan.address}}</h2>
 <h2>{{newPlan.time}}</h2>
 <h2>{{newPlan.price}}</h2>
 <h2>{{newPlan.email}}</h2>
-
-<div class="container" id="voting-box">
-  <div class="left" onclick="addleft()">
-    <div class="text">
-      <span class="option-size" id="size-one"></span>
-      <br>
-      <span class="option-title" id="option-one"></span>                
-    </div>
-  </div>
-  <div class="right" name="right" onclick="addright() right.disabled = true; return true;">
-    <div class="text">
-      <span class="option-size" id="size-two"></span>
-      <br>
-      <span class="option-title" id="option-two"></span>
-    </div>
-  </div>
+<h2 id="newPlanId" name="id">{{newPlan._id}}</h2>
 </div>
+
+<button id="yes"class="yesandno" onclick="voteYes()">Yes</button>
+<button id="no" class="yesandno" onclick="voteNo()">No</button>
+
 <aside>
   <span id="total-votes"></span>
-
+  
 </aside>
 
 
@@ -40,6 +38,32 @@
   <div id="map">
 </div>
 </body>
+<script type="text/javascript">
+	function disableButton(){
+		document.querySelector(".yesandno").disabled = true;
+		alert("Button has been disabled.");
+	}
+</script>
+<script>
+  let newPlanId = document.querySelector("#newPlanId").innerHTML
+  function voteYes(){
+    axios.post("/auth/updatePlan",{idPlan: newPlanId})
+    .then(data =>{ 
+      document.querySelector("#votesYes").innerHTML = data.data.votedYes
+      document.querySelector("#statusPlan").innerHTML = data.data.status
+    })
+    .catch(err => console.log(err))
+  }
+  function voteNo(){
+    axios.post("/auth/updatePlanNo",{idPlan: newPlanId})
+    .then(data => {
+      document.querySelector("#votesNo").innerHTML = data.data.votedNo
+      document.querySelector("#statusPlan").innerHTML = data.data.status
+    })
+    .catch(err => console.log(err))
+  }
+  
+</script>
 <script>
    var geocoder;
   var map;

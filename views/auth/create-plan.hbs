@@ -8,6 +8,12 @@
     <div class="boxFormMap">
       <label for="title">title</label>
       <input id="title" type="text" name="title" placeholder="title" value="hola"></div>
+   <div class="boxFormMap">
+      <label for="maxVotes">MaxVotes</label>
+      <input id="maxVotes" type="number" name="maxVotes" placeholder="maxVotes" value="8"></div>
+      <div> 
+        <input id="votedYes" type="hidden" name="votedYes" placeholder="votedYes" value="0"></div> 
+        <input id="votedNo" type="hidden" name="votedNo" placeholder="votedNo" value="0"></div>  
 
     <div class="boxFormMap">
       <label for="city">Name</label>
@@ -46,9 +52,13 @@
     <div class="error-message">{{ message }}</div>
     {{/if}}
 
-    <button>Create plan and Enjoy!!</button>
+    <button type="submit">Create plan and Enjoy!!</button>
 
   </form>
+
+  
+
+
 
   
 </div>

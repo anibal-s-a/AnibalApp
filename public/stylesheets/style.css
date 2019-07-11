@@ -339,51 +339,79 @@ button:hover {
   overflow: hidden;
   margin-left: 25px; }
 
-.container {
-  height: 100px;
-  width: 300px;
-  background: #ecfbff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/*****************************/
+/***prueba de login trasparente*/
+/****************************/
+.loginBox {
+  position: relative;
+  align-content: space-between;
+  justify-content: space-around;
+  margin-top: 5%;
+  padding: 20px;
+  width: 350px;
+  height: 500px;
+  box-sizing: border-box;
+  background: transparent;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 50% 50%; }
+  transition: 0.5s; }
 
-.container > div {
+.loginBox:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0);
+  background: rgba(255, 255, 255, 0.6); }
+
+.glass {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  transition: 0.5s; }
+
+h3 {
+  margin: 0;
+  padding: 0px 0px 20px;
+  color: #262626;
   text-align: center; }
 
-.container > div:hover {
-  cursor: pointer; }
+.loginBox input {
+  width: 100%;
+  margin-bottom: 20px; }
 
-.left {
-  background: #c066b1; }
+.loginBox input[type="text"],
+.loginBox input[type="password"],
+.loginBox input[type="date"],
+.loginBox input[type="time"],
+.loginBox input[type="number"],
+.loginBox input[type="email"] {
+  border: none;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #262626;
+  font-size: 16px;
+  padding-left: 20px;
+  box-sizing: border-box; }
 
-.right {
-  background: #61a5ff; }
+::placeholder {
+  color: rgba(0, 0, 0, 0.5); }
 
-.text {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  user-select: none; }
-
-.option-title {
-  color: white; }
-
-.option-size {
-  color: white;
-  font-size: 20px; }
-
-
+/*********************/
+/*****final prueba login*/
+/*****************************/
 #map {
   height: 450px;
   width: 450px;
   margin-top: 100px; }
 
+#voteResult {
+  font-size: 50px;
+  color: green; }
+
+#voteResult1 {
+  font-size: 50px;
+  color: red; }
 
 /*# sourceMappingURL=style.css.map */
