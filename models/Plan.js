@@ -6,6 +6,8 @@ const planSchema = new Schema(
     createdBy: { type: Schema.Types.ObjectId, ref: "User" },
     title: String,
     city : String,
+    address : String,
+    typeLocation : String,
     invites: [{ type: Schema.Types.ObjectId, ref: "User" }],
     email: String,
     date: Date,

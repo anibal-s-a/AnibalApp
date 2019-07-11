@@ -1,8 +1,12 @@
-<h2>this is a hola</h2>
+<body onload="start()">
+{{!-- <h2>this is a hola</h2> --}}
 <h2>{{newPlan.createdBy.username}}</h2>
 <h2>{{newPlan.title}}</h2>
 <h2>{{newPlan.name}}</h2>
-<h2>{{newPlan.location}}</h2>
+<h2>{{newPlan.date}}</h2>
+
+{{!-- <h3><span id="lat">{{newPlan.location.coordinates.[0]}}</span> / <span id="lng">{{newPlan.location.coordinates.[1]}}</span></h3> --}}
+<h2 id="address">{{newPlan.address}}</h2>
 <h2>{{newPlan.time}}</h2>
 <h2>{{newPlan.price}}</h2>
 <h2>{{newPlan.email}}</h2>
@@ -15,7 +19,7 @@
       <span class="option-title" id="option-one"></span>                
     </div>
   </div>
-  <div class="right" onclick="addright()">
+  <div class="right" name="right" onclick="addright() right.disabled = true; return true;">
     <div class="text">
       <span class="option-size" id="size-two"></span>
       <br>
@@ -23,3 +27,54 @@
     </div>
   </div>
 </div>
+<aside>
+  <span id="total-votes"></span>
+
+</aside>
+
+
+<br><br>
+
+
+  
+  <div id="map">
+</div>
+</body>
+<script>
+   var geocoder;
+  var map;
+  function initialize() {
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng();
+    var mapOptions = {
+      zoom: 14,
+      center: {lat: 40.4165000, lng: -3.7025600},
+    }
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    
+  }
+
+  function codeAddress() {
+    var address = document.getElementById('address').innerText;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+  function start(){
+    initialize()
+    codeAddress()
+  }
+  console.log(document.getElementById('planAddress').innerText)
+  
+</script>
+
+ 
+
