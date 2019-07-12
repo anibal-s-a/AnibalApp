@@ -12,6 +12,9 @@
 <h2>{{newPlan.name}}</h2>
 <h2>{{newPlan.date}}</h2>
 <h2 id="maxVote">{{newPlan.maxVotes}} </h2>
+<h2 id="comments">{{newPlan.comments}} </h2>
+  
+  
 
 
 
@@ -24,7 +27,11 @@
 
 <button id="yes"class="yesandno" onclick="voteYes()">Yes</button>
 <button id="no" class="yesandno" onclick="voteNo()">No</button>
+{{!-- <form id="formValue" onsubmit="losComments()">   --}}
+<input id="comment" type="text" name="comment" placeholder="comment" value=""></div>
+{{!-- <button type="submit" >comment</button> --}}
 
+{{!-- </form> --}}
 <aside>
   <span id="total-votes"></span>
   
@@ -45,8 +52,33 @@
 	}
 </script>
 <script>
+  //creates a listener for when you press a key
+window.onkeyup = keyup;
+
+//creates a global Javascript variable
+var inputTextValue;
+
+function keyup(e) {
+  //setting your input text to the global Javascript Variable for every key press
+  inputTextValue = e.target.value;
+
+  //listens for you to press the ENTER key, at which point your web address will change to the one you have input in the search box
+  if (e.keyCode == 13) {
+    losComments(inputTextValue)
+  }
+}
   let newPlanId = document.querySelector("#newPlanId").innerHTML
+  {{!-- let newComment = document.querySelector("#formValue").value --}}
+   function losComments(arg){
+     console.log("newComment")
+     axios.post("/auth/postComment",{idPlan: newPlanId, losComment: arg })
+    .then(data => {
+      document.querySelector("#comments").innerHTML = data.data.comments
+    })
+    .catch(err => console.log(err))
+  }
   function voteYes(){
+    
     axios.post("/auth/updatePlan",{idPlan: newPlanId})
     .then(data =>{ 
       document.querySelector("#votesYes").innerHTML = data.data.votedYes
@@ -62,6 +94,7 @@
     })
     .catch(err => console.log(err))
   }
+ 
   
 </script>
 <script>
