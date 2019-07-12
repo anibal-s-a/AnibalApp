@@ -1,11 +1,5 @@
 <nav>
   <ul>
-    {{!-- <li> <a href="/">Home</a>
-    </li> --}}
-    <li><a href="/auth/create-plan">Create Plan</a></li>
-    </li>
-    <li><a href="/auth/created-list">Created Plans</a></li>
-    </li>
     <li> <a href="/auth/logout">Logout</a>
     </li>
   </ul>
@@ -26,68 +20,26 @@
 
   </div>
 </div>
-<div>
 
-  <div class="box-cards">
-    <div class="card">
-      <div class="face face1">
-        <div class="content-card">
-          <h2>Past Plans</h2>
-        </div>
-      </div>
-      <div class="face face2">
-        <div class="content-card">
-          <ul>
-            {{#each allPlans}}
-            <div>
-              <li>{{ this.title }}</li>
-              <li>{{ this.status }}
-              </li>
-            </div>
-            {{/each}}
-          </ul>
-          <a href="/auth/created-list">Created Plans</a>
-        </div>
+<div class="box-cards">
+  <div class="card">
+    <div class="face face1">
+      <div class="content-card">
+        <h2>Past Plans</h2>
       </div>
     </div>
-    <div class="card">
-      <div class="face face1">
-        <div class="content-card">
-          <h2>Top Rated Plan</h2>
-        </div>
-      </div>
-      <div class="face face2">
-        <div class="content-card">
-          <ul>
-            {{#each allPlans}}
-            <div>
-              <li>{{ this.title }}</li>
-              {{!-- <li>{{ this.status }}</li> --}}
-            </div>
-            {{/each}}
-          </ul> <a href="#">Enlace a </a>
-        </div>
-
-      </div>
-    </div>
-    <div class="card">
-      <div class="face face1">
-        <div class="content-card">
-          <h2>Future Plans</h2>
-        </div>
-      </div>
-      <div class="face face2">
-        <div class="content-card">
-          <ul>
-            {{#each allPlans}}
-            <div>
-              <li>{{ this.title }}</li>
-              {{!-- <li>{{ this.status }}</li> --}}
-            </div>
-            {{/each}}
-          </ul> <a href="#">Enlace a </a>
-        </div>
-
+    <div class="face face2">
+      <div class="content-card">
+        <ul>
+          {{#each allPlans}}
+          <div>
+            <li>{{ this.title }}</li>
+            <li>{{ this.status }}
+            </li>
+          </div>
+          {{/each}}
+        </ul>
       </div>
     </div>
   </div>
+</div>
