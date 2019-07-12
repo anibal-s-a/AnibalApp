@@ -1,73 +1,59 @@
-<h2>Create New Plan</h2>
-<div class="createPlanPage">
-<div class="box">
-  <h2>Create your Plan</h2>
-<div class="formClass">
-  <form action="/auth/createPlan" method="POST" id="form-container">
+<nav>
+  <ul>
+    <li> <a href="/auth/profile">Profile</a>
+    </li>
+    <li> <a href="/auth/logout">Logout</a>
+    </li>
+  </ul>
+</nav>
 
-    <div class="boxFormMap">
-      <label for="title">title</label>
-      <input id="title" type="text" name="title" placeholder="title" value="hola"></div>
-   <div class="boxFormMap">
-      <label for="maxVotes">MaxVotes</label>
-      <input id="maxVotes" type="number" name="maxVotes" placeholder="maxVotes" value="8"></div>
-      <div> 
-        <input id="votedYes" type="hidden" name="votedYes" placeholder="votedYes" value="0"></div> 
-        <input id="votedNo" type="hidden" name="votedNo" placeholder="votedNo" value="0"></div> 
-        <input id="comments" type="hidden" name="comments" placeholder="comments" value=""></div>  
 
-    <div class="boxFormMap">
-      <label for="city">City</label>
-      <input id="city" type="text" name="city" placeholder="city" value="madrid"></div>
+<div class="wrap">
+<div class="createBox">
 
-    <div class="boxFormMap">
-      <label for="date">date</label>
-      <input id="date" type="date" name="date" placeholder="date" ></div>
+<form action="/auth/createPlan" method="POST" id="form-container">
 
-    <div class="boxFormMap">
-      <label for="time">time</label>
-      <input id="time" type="time" name="time" placeholder="time" value="22:30"></div>
-      <div>
-        <label for="search">Search Location</label>
-        <input id="pac-input" class="controls" type="text" placeholder="Search Box" name="address">
-      </div>
+<label for="title">title</label>
+<input id="title" type="text" name="title" placeholder="title" value="">
 
-    <div class="boxFormMap">
-      <label for="Price">Price</label>
-      <input id="Price" type="number" name="Price" placeholder="Price" value="50"></div>
-      <div class="boxFormMap">
-        {{!-- <label for="latitude">Latitude</label>
-      <input type="text" name="latitude" placeholder="latitude" value="" id="lat" >
-      <label for="longitude">Longitude</label>
-  <input type="text" name="longitude" placeholder="longitude" value="" id="lng"  > --}}
-  </div>
+<label for="maxVotes">MaxVotes</label>
+<input id="maxVotes" type="number" name="maxVotes" placeholder="maxVotes" value="8">
 
-    <div class="boxFormMap">
-      <label for="email">invite</label>
-      <input id="myEmail" type="email" name="email" placeholder="email" value="carlos@riverette.com"></div>
+<input id="votedYes" type="hidden" name="votedYes" placeholder="votedYes" value="0">
+<input id="votedNo" type="hidden" name="votedNo" placeholder="votedNo" value="0">
+<input id="comments" type="hidden" name="comments" placeholder="comments" value="">
 
-   
+<label for="city">City</label>
+<input id="city" type="text" name="city" placeholder="city" value="">
 
-  
-    {{#if message }}
-    <div class="error-message">{{ message }}</div>
-    {{/if}}
+<label for="date">date</label>
+<input id="date" type="date" name="date" placeholder="date">
 
-    <button type="submit">Create plan and Enjoy!!</button>
+<label for="time">time</label>
+<input id="time" type="time" name="time" placeholder="time" value="">
 
-  </form>
+<label for="search">Search Location</label>
+<input id="pac-input" class="controls" type="text" placeholder="Search Box" name="address">
+
+<label for="Price">Price</label>
+<input id="Price" type="number" name="Price" placeholder="Price" value="">
+
+<label for="email">invite</label>
+<input id="myEmail" type="email" name="email" placeholder="email" value="">
+
+{{#if message }}
+<div class="error-message">{{ message }}</div>
+{{/if}}
+
+<button type="submit">Create plan and Enjoy!!</button>
+
+</form>
+
 </div>
-  
 
+{{!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box"> --}}
+<div id="map">
 
-
-  
-</div>
-<br><br><br><br>
-<div class="map-wrapper">
-  {{!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box"> --}}
-  <div id="map">
-   
 </div>
 </div>
 </div>
