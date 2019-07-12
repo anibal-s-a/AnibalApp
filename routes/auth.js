@@ -209,6 +209,7 @@ router.post("/updatePlanNo",(req,res,next)=>{
 
   router.get("/plan/:id",(req,res)=>{
     Plan.findById(req.params.id)
+    .populate("createdBy")
     .then(newPlan =>{
       res.render("plan-detail",{newPlan})
     })
