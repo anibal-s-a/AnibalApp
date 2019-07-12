@@ -24,64 +24,17 @@
   </nav> --}}
 
   {{{body}}}
-<script src="https://maps.googleapis.com/maps/api/js?key={{GOOGLEMAPSAPIKEY}}&libraries=places&callback=initAutocomplete"></script>
-  <script src="/javascripts/script.js"></script>
   <script>
     function myFunction() {
       document.getElementById("myEmail").multiple = true;
     }
     myFunction()
   </script>
-  <script>
-    window.onload = setup();
 
-    var pointA = 1;
-    var pointB = 1;
-    var totalVotes = pointA + pointB;
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    function addleft() {
-      pointA += 1;
-      totalVotes += 1;
-      updatePoints();
-      console.log(pointA + ' ' + pointB);
-    }
-    function addright() {
-      pointB += 1;
-      totalVotes += 1;
-      updatePoints();
-      console.log(pointA + ' ' + pointB);
-    }
-
-    function updatePoints() {
-      var percentA = (pointA / totalVotes) * 100;
-      var percentB = (pointB / totalVotes) * 100;
-      var size = percentA + "% " + percentB + "%";
-
-      document.getElementById("size-one").innerHTML = Math.round(percentA) + '%';
-      document.getElementById("size-two").innerHTML = Math.round(percentB) + '%';
-      document.getElementById("voting-box").style.gridTemplateColumns = percentA + "% " + percentB + "%";
-
-
-    document.getElementById("total-votes").innerHTML = "Total Votes Casted: " + totalVotes + " Yes: " + pointA + " No: " + pointB;
-    document.getElementById("total-yes").innerHTML = "Yes: " + pointA;
-    document.getElementById("total-no").innerHTML = "No: " + pointB;
-    
-}
-
-
-    function setup() {
-      pointA = 1;
-      pointB = 1;
-      totalVotes = pointA + pointB;
-
-      document.getElementById("option-one").innerHTML = "Yes";
-      document.getElementById("option-two").innerHTML = "No";
-
-
-    updatePoints();
-}
-</script>
-
+<script src="https://maps.googleapis.com/maps/api/js?key={{GOOGLEMAPSAPIKEY}}&libraries=places&callback=initAutocomplete"></script>
+  <script src="/javascripts/script.js"></script>
 </body>
 
 </html>

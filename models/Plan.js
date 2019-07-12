@@ -6,10 +6,14 @@ const planSchema = new Schema(
     createdBy: { type: Schema.Types.ObjectId, ref: "User" },
     title: String,
     city : String,
+    votedYes: Number,
+    votedNo: Number,
     address : String,
+    maxVotes : Number,
     typeLocation : String,
     invites: [{ type: Schema.Types.ObjectId, ref: "User" }],
     email: String,
+    comments: [String],
     date: Date,
     time: String,
     alternatives : [{ type: Schema.Types.ObjectId, ref: "Alternative" }],
@@ -19,7 +23,7 @@ const planSchema = new Schema(
     },
     status: {
       type: String,
-      enum: ["Pending Vote", "Vote Passed","Vote Failed"],
+      enum: ["Pending Vote", "Vote Passed","Vote Failed","Vote Draw"],
       default: "Pending Vote"
     },
     confirmationCode: { type: String , unique: true },

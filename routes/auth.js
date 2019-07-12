@@ -145,6 +145,75 @@ router.get("/logout", (req, res) => {
 router.get("/create-plan", (req, res) => {
   res.render("auth/create-plan", { user: req.user });
 });
+router.post("/updatePlan",(req,res,next)=>{
+  Plan.findById(req.body.idPlan)
+  .then(plan=>{
+    
+    Plan.findByIdAndUpdate(req.body.idPlan,{$set:{votedYes: plan.votedYes + 1}}, {new:true})
+  .then(planUpdated =>{
+    if (planUpdated.votedYes+planUpdated.votedNo===planUpdated.maxVotes && planUpdated.votedYes>planUpdated.votedNo){
+      Plan.findByIdAndUpdate(req.body.idPlan,{$set:{status : "Vote Passed"}}, {new:true})
+      .then(planStatusUpdated =>{res.json(planStatusUpdated)}) 
+      return
+    }
+    if (planUpdated.votedYes+planUpdated.votedNo===planUpdated.maxVotes && planUpdated.votedYes<planUpdated.votedNo){
+      Plan.findByIdAndUpdate(req.body.idPlan,{$set:{status : "Vote Failed"}}, {new:true})
+      .then(planStatusUpdated =>{res.json(planStatusUpdated)}) 
+      return
+    }
+    if (planUpdated.votedYes+planUpdated.votedNo===planUpdated.maxVotes && planUpdated.votedYes===planUpdated.votedNo){
+      Plan.findByIdAndUpdate(req.body.idPlan,{$set:{status : "Vote Draw"}}, {new:true})
+      .then(planStatusUpdated =>{res.json(planStatusUpdated)}) 
+      return
+    }
+
+    res.json(planUpdated)
+  })
+  })   
+})
+router.post("/postComment",(req,res,next)=>{
+ 
+  Plan.findByIdAndUpdate(req.body.idPlan,{$addToSet:{comments : req.body.losComment}}, {new:true})
+  .then(planComment =>{res.json(planComment)})
+})
+
+router.post("/updatePlanNo",(req,res,next)=>{
+  Plan.findById(req.body.idPlan)
+  .then(plan=>{
+    Plan.findByIdAndUpdate(req.body.idPlan,{$set:{votedNo: plan.votedNo + 1}}, {new:true})
+    .then(planUpdated =>{
+      if (planUpdated.votedYes+planUpdated.votedNo===planUpdated.maxVotes && planUpdated.votedYes>planUpdated.votedNo){
+        
+        Plan.findByIdAndUpdate(req.body.idPlan,{$set:{status : "Vote Passed"}}, {new:true})
+        .then(planStatusUpdated =>{res.json(planStatusUpdated)}) 
+        
+        return
+      }
+      if (planUpdated.votedYes+planUpdated.votedNo===planUpdated.maxVotes && planUpdated.votedYes<planUpdated.votedNo){
+        Plan.findByIdAndUpdate(req.body.idPlan,{$set:{status : "Vote Failed"}}, {new:true})
+        
+        .then(planStatusUpdated =>{res.json(planStatusUpdated)}) 
+    
+        return
+      }
+      if (planUpdated.votedYes+planUpdated.votedNo===planUpdated.maxVotes && planUpdated.votedYes===planUpdated.votedNo){
+        Plan.findByIdAndUpdate(req.body.idPlan,{$set:{status : "Vote Draw"}}, {new:true})
+        .then(planStatusUpdated =>{res.json(planStatusUpdated)}) 
+        return
+      }
+  
+      res.json(planUpdated)
+    })
+    })   
+  })
+
+  router.get("/plan/:id",(req,res)=>{
+    Plan.findById(req.params.id)
+    .then(newPlan =>{
+      res.render("plan-detail",{newPlan})
+    })
+  })
+  
 
 
 router.post('/createPlan', (req, res, next) => {
@@ -157,9 +226,14 @@ router.post('/createPlan', (req, res, next) => {
 
   Plan
     .create({
-      createdBy: author,
+
+      votedYes: req.body.votedYes,
+      votedNo: req.body.votedNo,
+      createdBy : author,
       title: req.body.title,
-      address: req.body.address,
+      address:req.body.address,
+      maxVotes : req.body.maxVotes,
+
       city: req.body.city,
       name: req.body.name,
       date: req.body.date,
@@ -167,6 +241,11 @@ router.post('/createPlan', (req, res, next) => {
       price: req.body.price,
       confirmationCode: token2,
       email: req.body.email,
+
+
+
+      comments : req.body.comments
+      
 
       // location: { 
       //   type: 'Point', 
@@ -178,8 +257,10 @@ router.post('/createPlan', (req, res, next) => {
     .then(newPlan => {
       console.log(newPlan)
       Plan.find(newPlan)
-        .populate("createdBy")
-        .then(() => { res.render("plan-detail", { newPlan }) })
+
+      .populate("createdBy")
+      .then(() => { res.redirect(`/auth/plan/${newPlan.id}`)})
+      
 
     })
 
@@ -208,9 +289,23 @@ router.get("/plan/confirm/:token", (req, res) => {
     .populate("createdBy")
     .then(newPlan => {
 
-      res.render("plan-detail", { newPlan });
-      console.log(`${newPlan}hola`)
-    })
+
+
+
+ router.get("/plan/confirm/:token", (req, res) => {
+ console.log("hola")
+ Plan.findOne({confirmationCode:req.params.token})
+ .populate("createdBy")
+  .then(newPlan => { 
+    
+    res.render("plan-detail",{newPlan});
+    console.log(`${newPlan}hola`)
+  })
+  
+  .catch((err)=>{
+   console.log(err)
+ })
+
 
     .catch((err) => {
       console.log(err)
@@ -218,23 +313,6 @@ router.get("/plan/confirm/:token", (req, res) => {
 
 });
 
-// prueba de lista de plans creados     
 
-// router.get("/profile", (req, res, next) => {
-//   Plan
-//     .find({ createdBy: req.params.user_id })
-//     .then(allPlans => res.render("auth/profile", { allPlans }))
-//     .catch(error => console.log(error))
-// });
-
-//funiona bien:
-// router.get("/created-list/:user_id", (req, res, next)=> { 
-//   Plan
-//     .find({createdBy: req.params.user_id })
-//     .then(allPlans => res.render("auth/created-list", { allPlans }))
-//     .catch(error => console.log(error))
-// });
-
-// final de prueba de lista planes creados
 
 module.exports = router;
