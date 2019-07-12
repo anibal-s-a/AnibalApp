@@ -13,6 +13,7 @@ const planSchema = new Schema(
     typeLocation : String,
     invites: [{ type: Schema.Types.ObjectId, ref: "User" }],
     email: String,
+    comments: [String],
     date: Date,
     time: String,
     alternatives : [{ type: Schema.Types.ObjectId, ref: "Alternative" }],

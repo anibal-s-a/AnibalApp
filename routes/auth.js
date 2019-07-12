@@ -168,19 +168,29 @@ router.post("/updatePlan",(req,res,next)=>{
   })
   })   
 })
+router.post("/postComment",(req,res,next)=>{
+ 
+  Plan.findByIdAndUpdate(req.body.idPlan,{$addToSet:{comments : req.body.losComment}}, {new:true})
+  .then(planComment =>{res.json(planComment)})
+})
+
 router.post("/updatePlanNo",(req,res,next)=>{
   Plan.findById(req.body.idPlan)
   .then(plan=>{
     Plan.findByIdAndUpdate(req.body.idPlan,{$set:{votedNo: plan.votedNo + 1}}, {new:true})
     .then(planUpdated =>{
       if (planUpdated.votedYes+planUpdated.votedNo===planUpdated.maxVotes && planUpdated.votedYes>planUpdated.votedNo){
+        
         Plan.findByIdAndUpdate(req.body.idPlan,{$set:{status : "Vote Passed"}}, {new:true})
         .then(planStatusUpdated =>{res.json(planStatusUpdated)}) 
+        
         return
       }
       if (planUpdated.votedYes+planUpdated.votedNo===planUpdated.maxVotes && planUpdated.votedYes<planUpdated.votedNo){
         Plan.findByIdAndUpdate(req.body.idPlan,{$set:{status : "Vote Failed"}}, {new:true})
+        
         .then(planStatusUpdated =>{res.json(planStatusUpdated)}) 
+    
         return
       }
       if (planUpdated.votedYes+planUpdated.votedNo===planUpdated.maxVotes && planUpdated.votedYes===planUpdated.votedNo){
@@ -226,6 +236,7 @@ router.post('/createPlan', (req, res, next) => {
       price: req.body.price,
       confirmationCode: token2,
       email: req.body.email,
+      comments : req.body.comments
       
       // location: { 
       //   type: 'Point', 
