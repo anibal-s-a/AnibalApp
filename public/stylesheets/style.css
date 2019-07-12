@@ -56,7 +56,8 @@ nav ul li:hover a:after {
   background-size: cover;
   position: relative;
   margin-left: 40px;
-  margin-top: 35px; }
+  margin-top: 35px;
+  top: 20px; }
 
 #d1 {
   height: 250px;
@@ -116,7 +117,7 @@ nav ul li:hover a:after {
   color: white;
   position: absolute;
   top: 200px;
-  right: 100px;
+  right: 90px;
   z-index: 99; }
 
 #inicio a {
@@ -417,11 +418,11 @@ h3 {
 .box-cards .card:hover .face.face1 content-card {
   opacity: 1; }
 
-.box-cards .card .face.face1 content-card h3 {
+.box-cards .card .face.face1 content-card h2 {
   margin: 10px 0px 0px;
   padding: 0px;
   text-align: center;
-  font-size: 1.5em; }
+  font-size: 2.5em; }
 
 .box-cards .card .face.face2 {
   position: relative;

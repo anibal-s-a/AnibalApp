@@ -1,11 +1,20 @@
-{{!-- *****************
-prueba de perfil chulo***
-*********** --}}
+<nav>
+  <ul>
+    {{!-- <li> <a href="/">Home</a>
+    </li> --}}
+    <li><a href="/auth/create-plan">Create Plan</a></li>
+    </li>
+    <li><a href="/auth/created-list">Created Plans</a></li>
+    </li>
+    <li> <a href="/auth/logout">Logout</a>
+    </li>
+  </ul>
+</nav>
 
 <div class="cont-profile">
   <div>
     <img class="circle" src="{{user.photo}}" alt="ImgPerfil" />
-    {{!-- <h1>Welcome {{user.username}}</h1> --}}
+    <h2>Welcome {{user.username}}</h2>
     <p>Lorem ipsum dolor sit ametconsectetur adipisicing elit. Neque modi non a</p>
 
     <h2>Upload your photo</h2>
@@ -18,15 +27,12 @@ prueba de perfil chulo***
   </div>
 </div>
 <div>
-  {{!-- <a href="/auth/create-plan" class="btn-plan"></a></div> --}}
 
-  {{!-- prueba de tarejetas por 3
-************************* --}}
   <div class="box-cards">
     <div class="card">
       <div class="face face1">
         <div class="content-card">
-          <h3>Past Plans</h3>
+          <h2>Past Plans</h2>
         </div>
       </div>
       <div class="face face2">
@@ -35,11 +41,31 @@ prueba de perfil chulo***
             {{#each allPlans}}
             <div>
               <li>{{ this.title }}</li>
-              <li>{{ this.status }}</li>
+              <li>{{ this.status }}
+              </li>
             </div>
             {{/each}}
           </ul>
-          <a href="#">Enlace a Ultratumba</a>
+          <a href="/auth/created-list">Created Plans</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="face face1">
+        <div class="content-card">
+          <h2>Top Rated Plan</h2>
+        </div>
+      </div>
+      <div class="face face2">
+        <div class="content-card">
+          <ul>
+            {{#each allPlans}}
+            <div>
+              <li>{{ this.title }}</li>
+              {{!-- <li>{{ this.status }}</li> --}}
+            </div>
+            {{/each}}
+          </ul> <a href="#">Enlace a </a>
         </div>
 
       </div>
@@ -47,27 +73,19 @@ prueba de perfil chulo***
     <div class="card">
       <div class="face face1">
         <div class="content-card">
-          <h3>Top Rated Plan</h3>
+          <h2>Future Plans</h2>
         </div>
       </div>
       <div class="face face2">
         <div class="content-card">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui!</p>
-          <a href="#">Enlace a Ultratumba</a>
-        </div>
-
-      </div>
-    </div>
-    <div class="card">
-      <div class="face face1">
-        <div class="content-card">
-          <h3>Future Plans</h3>
-        </div>
-      </div>
-      <div class="face face2">
-        <div class="content-card">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui!</p>
-          <a href="#">Enlace a Ultratumba</a>
+          <ul>
+            {{#each allPlans}}
+            <div>
+              <li>{{ this.title }}</li>
+              {{!-- <li>{{ this.status }}</li> --}}
+            </div>
+            {{/each}}
+          </ul> <a href="#">Enlace a </a>
         </div>
 
       </div>
