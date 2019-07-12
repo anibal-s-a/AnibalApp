@@ -564,9 +564,6 @@ h3 {
   color: #fff;
 }
 
-/*******/
-/**prueba profile guapo*/
-/*****************/
 .cont-profile {
   position: fixed;
   top: -1%;
@@ -618,7 +615,54 @@ h1 {
   padding: 0;
   font-size: 30px;
 }
-/*****/
-/****final prueba profile guapo****/
 
+/************/
+/*****create plan****/
+/*****************/
 
+.createBox {
+  // display: flex;
+  position: relative;
+  align-content: space-between;
+  justify-content: space-around;
+  margin-top: 5%;
+  padding: 30px;
+  // top: 80%;
+  // left: 50%;
+  // transform: translate(-50%, 0%);
+  width: 450px;
+  height: 800px;
+  box-sizing: border-box;
+  background: transparent;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
+  border-radius: 15px;
+  transition: 0.5s;
+}
+
+.createBox:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0);
+  // background: rgba(255, 255, 255, 0.6);
+}
+
+.createBox input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+// .loginBox input[type="photo"]
+.createBox input[type="text"],
+.createBox input[type="hidden"],
+.createBox input[type="date"],
+.createBox input[type="time"],
+.createBox input[type="number"],
+.createBox input[type="email"] {
+  border: none;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #043074;
+  font-size: 16px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}

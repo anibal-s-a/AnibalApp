@@ -33,9 +33,9 @@
         <ul>
           {{#each allPlans}}
           <div>
-            <li><a href="/auth/plan/{{this.id}}">{{this.title}}</a></li>
-            <li>{{ this.status }}
-            </li>
+            <li><a href="/auth/plan/{{this.id}}">{{this.title}},{{this.city}},{{this.status}}</a></li>
+            {{!-- <li>{{ this.status }}
+            </li> --}}
           </div>
           {{/each}}
         </ul>
