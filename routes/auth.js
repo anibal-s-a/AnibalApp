@@ -283,15 +283,6 @@ router.post('/createPlan', (req, res, next) => {
 });
 
 
-router.get("/plan/confirm/:token", (req, res) => {
-  console.log("hola")
-  Plan.findOne({ confirmationCode: req.params.token })
-    .populate("createdBy")
-    .then(newPlan => {
-
-
-
-
  router.get("/plan/confirm/:token", (req, res) => {
  console.log("hola")
  Plan.findOne({confirmationCode:req.params.token})
@@ -312,7 +303,6 @@ router.get("/plan/confirm/:token", (req, res) => {
     })
 
 });
-
 
 
 module.exports = router;
