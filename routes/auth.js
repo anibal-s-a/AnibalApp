@@ -283,6 +283,11 @@ router.post('/createPlan', (req, res, next) => {
 });
 
 
+
+
+
+
+
  router.get("/plan/confirm/:token", (req, res) => {
  console.log("hola")
  Plan.findOne({confirmationCode:req.params.token})
