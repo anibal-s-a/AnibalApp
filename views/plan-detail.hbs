@@ -1,5 +1,14 @@
+<nav>
+  <ul>
+    <li> <a href="/auth/profile">Profile</a>
+    </li>
+    <li><a href="/auth/logout">Logout</a></li>
+    </li>
+  </ul>
+</nav>
 <body onload="start()">
-  <div>
+  <div class="wrap">
+  <div class="planBox">
     <aside>
 <img src="{{newPlan.createdBy.photo}}" alt="" height="100px" width="100px"></aside>
 <h2>{{newPlan.createdBy.username}}</h2>
@@ -22,8 +31,8 @@
 <h2>{{newPlan.time}}</h2>
 <h2>{{newPlan.price}}</h2>
 <h2>{{newPlan.email}}</h2>
-<h2 id="newPlanId" name="id">{{newPlan._id}}</h2>
-</div>
+<h2 id="newPlanId" name="id" type="hidden">{{newPlan._id}}</h2>
+
 
 <button id="yes"class="yesandno" onclick="voteYes()">Yes</button>
 <button id="no" class="yesandno" onclick="voteNo()">No</button>
@@ -38,11 +47,12 @@
 </aside>
 
 
-<br><br>
+
 
 
   
   <div id="map">
+</div>
 </div>
 </body>
 <script type="text/javascript">

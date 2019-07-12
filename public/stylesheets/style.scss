@@ -66,7 +66,7 @@ nav ul li:hover a:after {
   margin-left: 40px;
   margin-top: 35px;
   // left: 10px;
-  top:20px;
+  top: 20px;
 }
 
 #d1 {
@@ -311,7 +311,6 @@ button .instagram {
   text-align: center;
 }
 
-
 .container {
   height: 100px;
   width: 300px;
@@ -353,7 +352,6 @@ button .instagram {
 //   display: grid;
 //   grid-template-columns: 50% 50%;
 // }
-
 
 // .container > div {
 //   text-align: center;
@@ -478,13 +476,13 @@ h3 {
   height: 400px;
   // position: relative;
   display: flex;
-  left: 2%;
+  left: 10%;
   // bottom: -50%;
 }
 
 .box-cards .card {
   // margin-bottom: 70%;
-  // position: relative;
+  position: relative;
 }
 .box-cards .card .face {
   width: 260px;
@@ -495,19 +493,19 @@ h3 {
 .box-cards .card .face.face1 {
   position: relative;
   left: 25px;
-  top: 50%;
-  margin-bottom: 70%;
+  top: 80%;
+  margin-bottom: 45%;
   background: rgb(253, 237, 237);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
-  transform: translateX(0px);
+  transform: translateY(100px);
 }
 
 .box-cards .card:hover .face.face1 {
   background: #f78fb3;
-  transform: translateX(0px);
+  transform: translateY(0px);
 }
 
 .box-cards .card .face.face1 content-card {
@@ -518,7 +516,6 @@ h3 {
 .box-cards .card:hover .face.face1 content-card {
   opacity: 1;
 }
-
 
 .box-cards .card .face.face1 content-card h2 {
   margin: 10px 0px 0px;
@@ -531,7 +528,7 @@ h3 {
   position: relative;
   background: rgb(188, 207, 250);
   left: 25px;
-  top: -7%;
+  // top: -7%;
   margin-bottom: 70%;
   display: flex;
   justify-content: center;
@@ -539,11 +536,11 @@ h3 {
   padding: 20px;
   box-sizing: border-box;
   box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.8);
-  transform: translateX(0px);
+  transform: translateY(-100px);
 }
 
 .box-cards .card:hover .face.face2 {
-  transform: translateX(350px);
+  transform: translateY(100px);
 }
 
 .box-cards .card .face.face2 content-card p {
@@ -600,15 +597,15 @@ h3 {
 }
 
 .cont-profile input[type="submit"] {
-  background: transparent;  
+  background: transparent;
   border: none;
   outline: none;
-  width:50px;
-  height: 30px; 
+  width: 50px;
+  height: 30px;
   color: #fff;
   background: #47ad7e;
   padding: 10px, 20px;
-  margin-top:5px;
+  margin-top: 5px;
   border-radius: 15px;
   cursor: pointer;
 }
@@ -620,7 +617,6 @@ h1 {
 }
 /*****/
 /****final prueba profile guapo****/
-
 
 /*********/
 .createBox {
@@ -668,4 +664,57 @@ h1 {
   font-size: 16px;
   padding-left: 20px;
   box-sizing: border-box;
+}
+
+/*****************/
+.planBox {
+  position: relative;
+  align-content: space-between;
+  justify-content: space-around;
+  // margin-top: 5%;
+  padding: 30px;
+  left: 10%;
+  width: 400px;
+  height: 780px;
+  box-sizing: border-box;
+  background: transparent;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
+  border-radius: 15px;
+  transition: 0.5s;
+}
+
+.planBox:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.planBox input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.planBox input[type="text"],
+.planBox input[type="password"],
+.planBox input[type="date"],
+.planBox input[type="time"],
+.planBox input[type="number"],
+.planBox input[type="email"],
+.planBox input[type="hidden"] {
+  border: none;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #043074;
+  font-size: 16px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.wrap2 {
+  position: relative;
+  width: 100%;
+  display: flex;
+  // top: 50%;
+  justify-content: space-around;
 }

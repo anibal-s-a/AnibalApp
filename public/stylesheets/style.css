@@ -370,7 +370,10 @@ h3 {
   width: 850px;
   height: 400px;
   display: flex;
-  left: 2%; }
+  left: 10%; }
+
+.box-cards .card {
+  position: relative; }
 
 .box-cards .card .face {
   width: 260px;
@@ -381,18 +384,18 @@ h3 {
 .box-cards .card .face.face1 {
   position: relative;
   left: 25px;
-  top: 50%;
-  margin-bottom: 70%;
+  top: 80%;
+  margin-bottom: 45%;
   background: #fdeded;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
-  transform: translateX(0px); }
+  transform: translateY(100px); }
 
 .box-cards .card:hover .face.face1 {
   background: #f78fb3;
-  transform: translateX(0px); }
+  transform: translateY(0px); }
 
 .box-cards .card .face.face1 content-card {
   opacity: 0.2;
@@ -412,7 +415,6 @@ h3 {
   position: relative;
   background: #bccffa;
   left: 25px;
-  top: -7%;
   margin-bottom: 70%;
   display: flex;
   justify-content: center;
@@ -420,10 +422,10 @@ h3 {
   padding: 20px;
   box-sizing: border-box;
   box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.8);
-  transform: translateX(0px); }
+  transform: translateY(-100px); }
 
 .box-cards .card:hover .face.face2 {
-  transform: translateX(350px); }
+  transform: translateY(100px); }
 
 .box-cards .card .face.face2 content-card p {
   margin: 0;
@@ -531,5 +533,51 @@ h1 {
   font-size: 16px;
   padding-left: 20px;
   box-sizing: border-box; }
+
+/*****************/
+.planBox {
+  position: relative;
+  align-content: space-between;
+  justify-content: space-around;
+  padding: 30px;
+  left: 10%;
+  width: 400px;
+  height: 780px;
+  box-sizing: border-box;
+  background: transparent;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
+  border-radius: 15px;
+  transition: 0.5s; }
+
+.planBox:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0);
+  background: rgba(255, 255, 255, 0.6); }
+
+.planBox input {
+  width: 100%;
+  margin-bottom: 20px; }
+
+.planBox input[type="text"],
+.planBox input[type="password"],
+.planBox input[type="date"],
+.planBox input[type="time"],
+.planBox input[type="number"],
+.planBox input[type="email"],
+.planBox input[type="hidden"] {
+  border: none;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #043074;
+  font-size: 16px;
+  padding-left: 20px;
+  box-sizing: border-box; }
+
+.wrap2 {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-around; }
 
 /*# sourceMappingURL=style.css.map */
