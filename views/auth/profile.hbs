@@ -1,32 +1,45 @@
-<div>
-  <header id="user-profile">
-    <div>
-      <h1>Welcome {{user.username}}</h1>
-      <img class="img" src="{{user.photo}}" alt="ImgPerfil" />
-    </div>
-  </header>
+<nav>
+  <ul>
+    <li> <a href="/auth/logout">Logout</a>
+    </li>
+  </ul>
+</nav>
 
-  <div><a href="/auth/create-plan" class="btn-plan"></a></div>
+<div class="cont-profile">
+  <div>
+    <img class="circle" src="{{user.photo}}" alt="ImgPerfil" />
+    <h2>Welcome {{user.username}}</h2>
+    <p>Lorem ipsum dolor sit ametconsectetur adipisicing elit. Neque modi non a</p>
 
-  <section class="datos-photos">
     <h2>Upload your photo</h2>
     <form action="/auth/upload" method="POST" enctype="multipart/form-data">
       <input type="file" name="photo">
       <input type="submit" value="Save">
     </form>
-  </section>
+    <div><a href="/auth/create-plan" class="btn-plan"></a></div>
 
-  <div class="box3">
-    <section class="box-profile">
-      <h2>Past Plan</h2>
-    </section>
+  </div>
+</div>
 
-    <section class="box-profile">
-      <h2>Top Rated Plan</h2>
-    </section>
-
-    <section class="box-profile">
-      {{!-- <h2>Future Plans {{#each user}}</h2> --}}
-    </section>
+<div class="box-cards">
+  <div class="card">
+    <div class="face face1">
+      <div class="content-card">
+        <h2>Past Plans</h2>
+      </div>
+    </div>
+    <div class="face face2">
+      <div class="content-card">
+        <ul>
+          {{#each allPlans}}
+          <div>
+            <li>{{ this.title }}</li>
+            <li>{{ this.status }}
+            </li>
+          </div>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

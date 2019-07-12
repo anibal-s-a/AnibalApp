@@ -124,14 +124,17 @@ router.get("/confirm/:token", (req, res) => {
 
 });
 router.get("/profile", (req, res) => {
-  res.render("auth/profile", { user: req.user });
+  Plan
+    .find({ createdBy: req.user._id })
+    .then(allPlans => res.render("auth/profile",{ user: req.user ,allPlans} ))
+    .catch(error => console.log(error))
 });
 
 router.post("/upload", uploadCloud.single('photo'), (req, res, next) => {
   User
     .findOneAndUpdate({ _id: req.user._id }, { photo: req.file.url }, { new: true })
     .then((user) => {
-      res.redirect("/")
+      res.redirect('/auth/profile')
     }).catch((err) => console.log(err))
 });
 
@@ -140,7 +143,7 @@ router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 router.get("/create-plan", (req, res) => {
-  res.render("auth/create-plan", {user: req.user});
+  res.render("auth/create-plan", { user: req.user });
 });
 router.post("/updatePlan",(req,res,next)=>{
   Plan.findById(req.body.idPlan)
@@ -218,17 +221,19 @@ router.post('/createPlan', (req, res, next) => {
   const characters2 = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   let token2 = '';
   for (let i = 0; i < 25; i++) {
-      token2 += characters2[Math.floor(Math.random() * characters2.length )];
+    token2 += characters2[Math.floor(Math.random() * characters2.length)];
   }
 
   Plan
     .create({
+
       votedYes: req.body.votedYes,
       votedNo: req.body.votedNo,
       createdBy : author,
       title: req.body.title,
       address:req.body.address,
       maxVotes : req.body.maxVotes,
+
       city: req.body.city,
       name: req.body.name,
       date: req.body.date,
@@ -236,41 +241,53 @@ router.post('/createPlan', (req, res, next) => {
       price: req.body.price,
       confirmationCode: token2,
       email: req.body.email,
+
+
+
       comments : req.body.comments
       
+
       // location: { 
       //   type: 'Point', 
       //   coordinates: [+req.body.longitude, +req.body.latitude] 
       // }
-      
-      
+
+
     })
-    .then(newPlan =>{
+    .then(newPlan => {
       console.log(newPlan)
       Plan.find(newPlan)
+
       .populate("createdBy")
       .then(() => { res.redirect(`/auth/plan/${newPlan.id}`)})
       
+
     })
-    
+
     // .then(plan => { res.render("plan-detail",{plan});console.log(plan)})
     .catch(error => console.log(error))
     .then(() => {
-      
+
       transporter.sendMail({
         from: '"Anibal" <anibalapp2019@gmail.com>',
-        to: req.body.email,  
-        subject: 'You have been invited to a plan!!!', 
+        to: req.body.email,
+        subject: 'You have been invited to a plan!!!',
         text: 'You have been invited!',
         html: `<b>You have been invited to a plan!!!</b> <a href="http://localhost:3000/auth/plan/confirm/${token2}">Go to the plan</a>`
       })
- 
-})
-.catch((err)=>{
-  console.log(err)
-})
+
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 });
 
+
+router.get("/plan/confirm/:token", (req, res) => {
+  console.log("hola")
+  Plan.findOne({ confirmationCode: req.params.token })
+    .populate("createdBy")
+    .then(newPlan => {
 
 
 
@@ -289,7 +306,12 @@ router.post('/createPlan', (req, res, next) => {
    console.log(err)
  })
 
- });
+
+    .catch((err) => {
+      console.log(err)
+    })
+
+});
 
 
 
