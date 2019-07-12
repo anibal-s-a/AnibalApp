@@ -273,7 +273,7 @@ router.post('/createPlan', (req, res, next) => {
         to: req.body.email,
         subject: 'You have been invited to a plan!!!',
         text: 'You have been invited!',
-        html: `<b>You have been invited to a plan!!!</b> <a href="http://localhost:3000/auth/plan/confirm/${token2}">Go to the plan</a>`
+        html: `<b>You have been invited to a plan!!!</b> <a href="https://anibalapp.herokuapp.com/auth/plan/confirm/${token2}">Go to the plan</a>`
       })
 
     })
