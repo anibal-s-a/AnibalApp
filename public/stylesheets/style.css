@@ -5,12 +5,17 @@ body {
   background-color: white;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
-/* haciendo la nav-bar */
 .indexWrapping {
   display: flex;
   flex-direction: column;
   align-content: center;
   align-items: center; }
+
+#yes {
+  background-color: #47ad7e; }
+
+#no {
+  background-color: #f83636; }
 
 nav ul {
   position: fixed;
@@ -74,8 +79,7 @@ nav ul li a:hover:after {
   opacity: 1; }
 
 .wrap {
-  margin-top: 80px;
-  width: 100%;
+  margin-top: 100px;
   display: flex;
   justify-content: space-evenly; }
 
@@ -210,9 +214,6 @@ button .instagram {
   overflow: hidden;
   margin-left: 25px; }
 
-/*****************************/
-/***prueba de login trasparente*/
-/****************************/
 .loginBox {
   position: relative;
   align-content: center;
@@ -361,17 +362,22 @@ h3 {
 ::placeholder {
   color: rgba(0, 0, 0, 0.5); }
 
-/*********************/
-/*****final prueba login*/
-/*****************************/
 #map {
   height: 450px;
   width: 450px;
-  margin-top: 100px; }
+  margin-top: 20px; }
 
-/***********************************/
-/****prueba profile final****/
-/***************************************/
+#map.mapDim {
+  height: 200px;
+  width: 400px;
+  margin-top: 20px; }
+
+#newPlanId {
+  color: white; }
+
+.insidePlan {
+  flex-direction: row; }
+
 .box-cards {
   width: 850px;
   height: 400px;
@@ -511,7 +517,6 @@ h1 {
   box-sizing: border-box;
   background: transparent;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
-  border-radius: 15px;
   transition: 0.5s; }
 
 .createBox:hover {
@@ -541,17 +546,23 @@ h1 {
 
 /*****************/
 .planBox {
-  position: relative;
   align-content: space-between;
   justify-content: space-around;
   padding: 30px;
   left: 10%;
-  width: 400px;
-  height: 780px;
   box-sizing: border-box;
   background: transparent;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
-  border-radius: 15px;
+  transition: 0.5s; }
+
+.planBox2 {
+  align-content: space-between;
+  justify-content: space-around;
+  padding: 30px;
+  left: 10%;
+  box-sizing: border-box;
+  background: transparent;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
   transition: 0.5s; }
 
 .planBox:hover {
@@ -584,5 +595,20 @@ h1 {
   width: 100%;
   display: flex;
   justify-content: space-around; }
+
+.planDate {
+  font-size: 50px; }
+
+.addresPlan {
+  font-size: 24px; }
+
+#comments {
+  list-style: none; }
+
+.commentBox {
+  list-style: none; }
+
+.planBox2 input {
+  width: 200px; }
 
 /*# sourceMappingURL=style.css.map */

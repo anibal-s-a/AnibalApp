@@ -8,51 +8,61 @@
 </nav>
 <body onload="start()">
   <div class="wrap">
+    <div class="insidePlan">
   <div class="planBox">
+    
     <aside>
 <img src="{{newPlan.createdBy.photo}}" alt="" height="100px" width="100px"></aside>
+
 <h2>{{newPlan.createdBy.username}}</h2>
-<h2><span id="statusPlan">{{newPlan.status}}</span></h2>
-<h2>Voted Yes : <span id="votesYes" >{{newPlan.votedYes}}</span></h2>
-<h2>Voted No : <span id="votesNo" >{{newPlan.votedNo}}</span></h2>
- <span id="voteResult" class="success"></span>
- <span id="voteResult1" class="fail"></span>
 <h2>{{newPlan.title}}</h2>
+<h2>{{newPlan.city}}</h2>
 <h2>{{newPlan.name}}</h2>
-<h2>{{newPlan.date}}</h2>
-<h2 id="maxVote">{{newPlan.maxVotes}} </h2>
-<h2 id="comments">{{newPlan.comments}} </h2>
-  
-  
+<div class="planDate">
+{{newPlan.date}}
+</div>
+<h2 id="address" class="addresPlan">{{newPlan.address}}</h2>
+<div id="map" class="mapDim">
 
-
-
-<h2 id="address">{{newPlan.address}}</h2>
+</div> 
 <h2>{{newPlan.time}}</h2>
 <h2>{{newPlan.price}}</h2>
 <h2>{{newPlan.email}}</h2>
 <h2 id="newPlanId" name="id" type="hidden">{{newPlan._id}}</h2>
-
-
-<button id="yes"class="yesandno" onclick="voteYes()">Yes</button>
-<button id="no" class="yesandno" onclick="voteNo()">No</button>
-{{!-- <form id="formValue" onsubmit="losComments()">   --}}
-<input id="comment" type="text" name="comment" placeholder="comment" value="" ></div>
-{{!-- <button type="submit" >comment</button> --}}
-
-{{!-- </form> --}}
-<aside>
-  <span id="total-votes"></span>
-  
-</aside>
-
-
-
-
-
-  
-  <div id="map">
 </div>
+
+</div>
+<div class="planBox2">
+<h2><span id="statusPlan">{{newPlan.status}}</span></h2>
+<h2>Votes Yes : <span id="votesYes" >{{newPlan.votedYes}}</span></h2>
+<h2>Votes No : <span id="votesNo" >{{newPlan.votedNo}}</span></h2>
+
+
+<h2 id="maxVote">People Invited : {{newPlan.maxVotes}} </h2>
+
+
+
+
+  <span id="total-votes"></span>
+  <button id="yes"class="yesandno" onclick="voteYes()">Yes</button>
+<button id="no" class="yesandno" onclick="voteNo()">No</button>
+  <h2>
+    <label for="">Leave a comment!
+<input id="comment" type="text" name="comment" placeholder="name: comment" value="" >
+</label>
+</h2>
+
+<ul id="comments" >
+  {{#each newPlan.comments}}
+<div class="commentBox">
+ <li>{{this}}</li> 
+</div>
+</ul>
+{{/each}}
+
+
+
+
 </div>
 </body>
 <script type="text/javascript">
@@ -138,8 +148,13 @@ function keyup(e) {
   function start(){
     initialize()
     codeAddress()
+    
+    document.querySelector(".planDate").innerText = document.querySelector(".planDate").innerText.slice(0,15);
   }
   console.log(document.getElementById('planAddress').innerText)
+
+
+
   
 </script>
 

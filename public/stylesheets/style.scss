@@ -4,7 +4,6 @@ body {
   background-color: white;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-/* haciendo la nav-bar */
 
 .indexWrapping {
   display: flex;
@@ -15,58 +14,14 @@ body {
  
 }
   
+#yes {
 
-// nav ul {
-//   margin: 15px 20px;
-//   padding: 0;
-//   display: flex;
-// }
+  background-color: #47ad7e;
+}
+#no {
 
-// nav ul li {
-//   list-style: none;
-//   padding: 10px 20px;
-// }
-
-// nav ul li a {
-//   text-decoration: none;
-//   text-transform: uppercase;
-//   font-size: 2em;
-//   color: #262626;
-//   position: relative;
-// }
-// nav ul li a:before {
-//   content: "";
-//   width: 10px;
-//   height: 3px;
-//   background: #88f0fa;
-//   position: absolute;
-//   top: 120%;
-//   left: 0%;
-//   transition: 0.5s;
-//   mix-blend-mode: multiply;
-// }
-
-// nav ul li a:after {
-//   content: "";
-//   width: 0px;
-//   height: 3px;
-//   background: rgb(251, 131, 251);
-//   position: absolute;
-//   top: 120%;
-//   left: 0%;
-//   transition: 0.5s;
-//   mix-blend-mode: multiply;
-// }
-
-// nav ul li:hover a:before {
-//   width: 50%;
-//   transform: translateX(100%);
-// }
-
-// nav ul li:hover a:after {
-//   width: 100%;
-//   transform: translateX(-10%);
-// }
+  background-color: #f83636;
+}
 
 nav ul{
   position: fixed;
@@ -132,9 +87,9 @@ nav ul li a:hover:after{
 
 
 .wrap {
-  margin-top: 80px;
+  margin-top: 100px;
   
-  width: 100%;
+  // width: 100%;
   display: flex;
   justify-content: space-evenly;
   
@@ -161,7 +116,6 @@ button {
   font-size: 16px;
   background: #7e7e7e;
   cursor: pointer;
-  // border-radius: 20px;
 }
 
 button:hover {
@@ -332,57 +286,6 @@ button .instagram {
   margin-left: 25px;
   // position: absolute;
 }
-// .container {
-//   height: 100px;
-//   width: 300px;
-//   background: rgb(236, 251, 255);
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   border-radius: 10px;
-//   box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.5);
-//   overflow: hidden;
-//   display: grid;
-//   grid-template-columns: 50% 50%;
-// }
-
-// .container > div {
-//   text-align: center;
-// }
-
-// .container > div:hover {
-//   cursor: pointer;
-// }
-
-// .left {
-//   background: rgb(192, 102, 177);
-// }
-
-// .right {
-//   background: rgb(97, 165, 255);
-// }
-
-// .text {
-//   position: relative;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   user-select: none;
-// }
-
-// .option-title {
-//   color: rgba(255, 255, 255, 1);
-// }
-
-// .option-size {
-//   color: rgba(255, 255, 255, 1);
-//   font-size: 20px;
-// }
-
-/*****************************/
-/***prueba de login trasparente*/
-/****************************/
 
 .loginBox {
   // display: flex;
@@ -430,34 +333,6 @@ button .instagram {
   padding-left: 20px;
   box-sizing: border-box;
 }
-// .planBox {
-//   // display: flex;
-//   position: relative;
-//   align-content: center;
-//   justify-content: center;
-//   margin-top: 5%;
-//   padding: 30px;
-//   // top: 80%;
-//   // left: 50%;
-//   // transform: translate(-50%, 0%);
-//   width: 50px;
-//   height: 200px;
-//   box-sizing: border-box;
-//   // background: transparent;
-//   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
-//   // border-radius: 15px;
-//   // transition: 0.5s;
-// }
-
-// .planBox:hover {
-//   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0);
-//   background: rgba(255, 255, 255, 0.6);
-// }
-
-// .planBox input {
-//   width: 100%;
-//   margin-bottom: 20px;
-// }
 .planWrapper {
   display: flex;
   flex-direction: column;
@@ -477,7 +352,6 @@ button .instagram {
   justify-content: center;
   margin-top: 40px;
   padding: 30px;
-  // transform: translate(-50%, 0%);
   width: 400px;
   height: 20px;
   box-sizing: border-box;
@@ -498,7 +372,6 @@ button .instagram {
   justify-content: center;
   margin-top: 40px;
   padding: 30px;
-  // transform: translate(-50%, 0%);
   width: 400px;
   height: 20px;
   box-sizing: border-box;
@@ -522,14 +395,9 @@ button .instagram {
   margin-top: 40px;
   margin-left: 20px;
   padding: 30px;
-  // transform: translate(-50%, 0%);
   width: 100px;
   height: 20px;
   box-sizing: border-box;
-  // background: transparent;
-  // box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
-  // border-radius: 15px;
-  // transition: 0.5s;
   background-color: #7e7e7e;
 
 }
@@ -542,14 +410,9 @@ button .instagram {
   margin-top: 40px;
   margin-left: 20px;
   padding: 30px;
-  // transform: translate(-50%, 0%);
   width: 100px;
   height: 20px;
   box-sizing: border-box;
-  // background: transparent;
-  // box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
-  // border-radius: 15px;
-  // transition: 0.5s;
   background-color:#47ad7e;
 
 }
@@ -562,14 +425,9 @@ button .instagram {
   margin-top: 40px;
   margin-left: 20px;
   padding: 30px;
-  // transform: translate(-50%, 0%);
   width: 100px;
   height: 20px;
   box-sizing: border-box;
-  // background: transparent;
-  // box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
-  // border-radius: 15px;
-  // transition: 0.5s;
   background-color:#f83636;
 
 }
@@ -603,19 +461,26 @@ h3 {
   color: rgba(0, 0, 0, 0.5);
 }
 
-/*********************/
-/*****final prueba login*/
-/*****************************/
 
 #map {
   height: 450px;
   width: 450px;
-  margin-top: 100px;
+  margin-top: 20px;
+}
+#map.mapDim {
+  height: 200px;
+  width: 400px;
+  margin-top: 20px;
+}
+#newPlanId {
+  color: white;
+}
+.insidePlan {
+  flex-direction: row;
 }
 
-/***********************************/
-/****prueba profile final****/
-/***************************************/
+
+
 
 .box-cards {
   width: 850px;
@@ -780,7 +645,7 @@ h1 {
   box-sizing: border-box;
   background: transparent;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
-  border-radius: 15px;
+  // border-radius: 15px;
   transition: 0.5s;
 }
 
@@ -814,18 +679,33 @@ h1 {
 
 /*****************/
 .planBox {
-  position: relative;
+  // position: relative;
   align-content: space-between;
   justify-content: space-around;
   // margin-top: 5%;
   padding: 30px;
   left: 10%;
-  width: 400px;
-  height: 780px;
+  // width: 400px;
+  // height: 780px;
   box-sizing: border-box;
   background: transparent;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
-  border-radius: 15px;
+  // border-radius: 15px;
+  transition: 0.5s;
+}
+.planBox2 {
+  // position: relative;
+  align-content: space-between;
+  justify-content: space-around;
+  // margin-top: 5%;
+  padding: 30px;
+  left: 10%;
+  // width: 400px;
+  // height: 780px;
+  box-sizing: border-box;
+  background: transparent;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
+  // border-radius: 15px;
   transition: 0.5s;
 }
 
@@ -863,4 +743,24 @@ h1 {
   display: flex;
   // top: 50%;
   justify-content: space-around;
+}
+
+.planDate {
+  font-size: 50px;
+}
+.addresPlan{
+  font-size: 24px;
+}
+
+#comments{
+  list-style: none;
+  
+}
+.commentBox{
+  list-style: none;
+  
+}
+.planBox2 input{
+  width: 200px;
+  
 }
