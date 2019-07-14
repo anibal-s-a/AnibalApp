@@ -11,7 +11,7 @@
 
 <div class="wrap">
 <div class="createBox">
-
+<div class="addEmailDiv">
 <form action="/auth/createPlan" method="POST" id="form-container">
 
 <label for="title">title</label>
@@ -38,14 +38,18 @@
 
 <label for="Price">Price</label>
 <input id="Price" type="number" name="Price" placeholder="Price" value="">
-
 <label for="email">invite</label>
+<div class="emailDiv">
 <input id="myEmail" type="email" name="email" placeholder="email" value="">
+
+<div class="addMorePeople"  onclick="addMorePeople()">add more people</div>
+</div>
+
 
 {{#if message }}
 <div class="error-message">{{ message }}</div>
 {{/if}}
-
+</div>
 <button type="submit">Create plan and Enjoy!!</button>
 
 </form>
@@ -169,6 +173,16 @@ function cancelEditPhoto(){
     document.querySelector("#cancelEdit").className = "cancelEdit"
 
 }
+
+function addMorePeople() {
+   var addEmail = document.createElement("div")
+   addEmail.innerHTML = `<input id="myEmail" type="email" name="email" placeholder="email" value="">
+`
+  document.querySelector(".addEmailDiv").append(addEmail)
+
+  
+}
+
 
 
     </script>

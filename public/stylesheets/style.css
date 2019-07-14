@@ -626,4 +626,15 @@ h1 {
 .cancelPhotoPointer {
   cursor: pointer; }
 
+.navPlanDetail {
+  margin-left: 10px; }
+
+.emailDiv {
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.addMorePeople {
+  cursor: pointer; }
+
 /*# sourceMappingURL=style.css.map */
