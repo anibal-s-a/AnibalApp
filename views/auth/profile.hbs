@@ -12,13 +12,20 @@
 <div class="cont-profile">
   <div>
     <img class="circle" src="{{user.photo}}" alt="ImgPerfil" />
-    <h2>{{user.username}}</h2>
-
-    <form action="/auth/upload" method="POST" enctype="multipart/form-data">
+    <div>
+    <h3>{{user.username}}</h3>
+    </div>
+    <div class="editPhoto" onclick="editPhoto()">
+      edit
+    </div>
+    <div class="editPhotoHidden">
+    <form  action="/auth/upload" method="POST" enctype="multipart/form-data">
       <input type="file" name="photo">
       <input type="submit" value="Save">
     </form>
-</div>
+    </div>
+    </div>
+
 
   </div>
 
@@ -76,6 +83,9 @@
    
   }
 
+function editPhoto(){
+  document.querySelector(".editPhotoHidden").className = ""
+}
  
   
 </script>
