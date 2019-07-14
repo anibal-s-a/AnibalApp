@@ -86,7 +86,7 @@ router.post("/signup", uploadCloud.single('photo'), (req, res, next) => {
           to: email,
           subject: 'Anibal Sign Up',
           text: 'Confirmation Email',
-          html: `<b>Thanks for signing in to Anibal. Enjoy creating plans with friends</b> <a href="http://localhost:3000/auth/confirm/${token}">Confirm email address</a>`
+          html: `<b>Thanks for signing in to Anibal. Enjoy creating plans with friends</b> <a href="http://anibal-project.herokuapp.com/auth/confirm/${token}">Confirm email address</a>`
         })
           .then(info => console.log(info))
           .catch(error => console.log(error))
@@ -280,7 +280,7 @@ router.post('/createPlan', (req, res, next) => {
         to: req.body.email,
         subject: 'You have been invited to a plan!!!',
         text: 'You have been invited!',
-        html: `<b>You have been invited to a plan!!!</b> <a href="https://anibalapp.herokuapp.com/auth/plan/confirm/${token2}">Go to the plan</a>`
+        html: `<b>You have been invited to a plan!!!</b> <a href="https://anibal-project.herokuapp.com/auth/plan/confirm/${token2}">Go to the plan</a>`
       })
 
     })
