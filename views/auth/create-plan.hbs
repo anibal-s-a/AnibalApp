@@ -8,6 +8,7 @@
 </nav>
 
 
+
 <div class="wrap">
 <div class="createBox">
 
@@ -57,6 +58,29 @@
 </div>
 </div>
 </div>
+<div class="cont-profile">
+  <div>
+    <img class="circle" src="{{user.photo}}" alt="ImgPerfil" />
+    <div>
+    <h3>{{user.username}}</h3>
+    </div>
+    <div id = "editPhoto" class="editPhoto" onclick="editPhoto()">
+      edit
+    </div>
+    <div id="cancelEdit" class="cancelEdit" onclick="cancelEditPhoto()">
+      cancel
+    </div>
+    <div id="editPhotBackHidden" class="editPhotoHidden">
+    <form  action="/auth/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="photo">
+      <input type="submit" value="Save">
+    </form>
+    </div>
+    </div>
+
+
+  </div>
+
   <script>
       // This example adds a search box to a map, using the Google Place Autocomplete
       // feature. People can enter geographical searches. The search box will return a
@@ -132,5 +156,19 @@
           map.fitBounds(bounds);
         });
       }
+
+      function editPhoto(){
+  document.querySelector(".editPhotoHidden").className = ""
+  document.querySelector(".cancelEdit").className = "cancelPhotoPointer"
+  document.querySelector(".editPhoto").className="editPhotoHiddenBtn"
+}
+function cancelEditPhoto(){
+    document.querySelector("#editPhotBackHidden").className = "editPhotoHidden"
+      document.querySelector("#editPhoto").className= "editPhoto"
+    {{!-- document.querySelector(".editPhoto").className="" --}}
+    document.querySelector("#cancelEdit").className = "cancelEdit"
+
+}
+
 
     </script>
