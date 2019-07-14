@@ -93,7 +93,10 @@ function keyup(e) {
      console.log("newComment")
      axios.post("/auth/postComment",{idPlan: newPlanId, losComment: arg })
     .then(data => {
-      document.querySelector("#comments").innerHTML = data.data.comments
+      for(var i =0; i < data.data.comments.length; i++){
+        document.querySelector("#comments").innerHTML = data.data.comments[i]
+      }
+      {{!-- document.querySelector("#comments").innerHTML = data.data.comments --}}
     })
     .catch(err => console.log(err))
   }
@@ -114,6 +117,13 @@ function keyup(e) {
     })
     .catch(err => console.log(err))
   }
+  function reload(){
+    axios
+    .get(`/plan/${newPlanId}`) 
+    
+  }
+
+  window.setInterval("reload",1000);
  
   
 </script>
