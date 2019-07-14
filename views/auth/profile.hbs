@@ -1,4 +1,8 @@
+<body onload="voteStatus()">
+  
+
 <nav>
+
   <ul>
     <li> <a href="/auth/logout">Logout</a>
     </li>
@@ -8,38 +12,73 @@
 <div class="cont-profile">
   <div>
     <img class="circle" src="{{user.photo}}" alt="ImgPerfil" />
-    <h2>Welcome {{user.username}}</h2>
-    <p>Lorem ipsum dolor sit ametconsectetur adipisicing elit. Neque modi non a</p>
+    <h2>{{user.username}}</h2>
 
-    <h2>Upload your photo</h2>
     <form action="/auth/upload" method="POST" enctype="multipart/form-data">
       <input type="file" name="photo">
       <input type="submit" value="Save">
     </form>
-    <div><a href="/auth/create-plan" class="btn-plan"></a></div>
-
-  </div>
 </div>
 
-<div class="box-cards">
-  <div class="card">
-    <div class="face face1">
-      <div class="content-card">
-        <h2>Past Plans</h2>
-      </div>
-    </div>
-    <div class="face face2">
-      <div class="content-card">
-        <ul>
-          {{#each allPlans}}
-          <div>
-            <li><a href="/auth/plan/{{this.id}}">{{this.title}}</a></li>
-            <li>{{ this.status }}
-            </li>
-          </div>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
   </div>
+
+
+<div class="planWrapper">
+  <div>
+  <a href="/auth/create-plan" ><img src="https://res.cloudinary.com/dumuchjet/image/upload/v1563103305/fotos/ui-01-512_snnyoj.png" alt="" width="200px" height="200px"></a>
+  <aside><h3>Create Plan</h3></aside>
+  </div>
+  <h2>YOUR PLANS</h2>
+{{#each allPlans}}
+<div class="completePlan">
+  <div class="eachPlanDate">
+ <a>{{this.date}}</a> 
 </div>
+
+<div class="eachPlan">
+ <a class ="planLink" href="/auth/plan/{{this.id}}">{{this.title}}</a> 
+</div>
+<div  class="eachPlanStatusPending">
+ <a class ="planLinkStatus" href="/auth/plan/{{this.id}}">{{this.status}}</a> 
+</div>
+</div>
+{{/each}}
+</div>
+</body>
+<script>
+  
+  var allDivPlansNode = document.querySelectorAll(".eachPlanStatusPending")
+  var allDivPlans = Array.from(allDivPlansNode)
+   var allDatesNode = document.querySelectorAll(".eachPlanDate")
+    var allDatesArray = Array.from(allDatesNode)
+ 
+  function voteStatus(){
+    console.log(document.querySelectorAll(".eachPlanDate"))
+    for(var i = 0; i < allDivPlans.length; i++ ){
+       if(allDivPlans[i].innerText=="Vote Passed"){
+         
+    allDivPlans[i].className = "eachPlanStatusPassed";
+    }
+    else if(allDivPlans[i].innerText=="Pending Vote"){
+
+    allDivPlans[i].className = "eachPlanStatusPending";
+    }
+    else if(allDivPlans[i].innerText=="Vote Failed"){
+
+    allDivPlans[i].className = "eachPlanStatusFailed";
+    }
+    }
+      for (var i = 0 ; i < allDatesArray.length; i++){
+      allDatesArray[i].innerText = allDatesArray[i].innerText.slice(0,15)
+      
+    }
+   
+   
+  }
+
+  function toDateFormat(){
+  
+   
+  }
+  
+</script>

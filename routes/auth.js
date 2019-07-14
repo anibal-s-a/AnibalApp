@@ -9,6 +9,7 @@ const nodemailer = require("nodemailer");
 const uploadCloud = require('../config/cloudinary.js')
 const multer = require('multer');
 
+
 // //Social Instagram:
 // const InstagramStrategy = require('passport-instagram').Strategy;
 
@@ -126,7 +127,12 @@ router.get("/confirm/:token", (req, res) => {
 router.get("/profile", (req, res) => {
   Plan
     .find({ createdBy: req.user._id })
-    .then(allPlans => res.render("auth/profile",{ user: req.user ,allPlans} ))
+    
+    .sort({"date":1})
+    
+    .then(allPlans => 
+      // allPlans.date=allPlans.date.slice(0,15);
+      res.render("auth/profile",{ user: req.user ,allPlans} ))
     .catch(error => console.log(error))
 });
 
