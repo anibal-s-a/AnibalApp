@@ -772,7 +772,17 @@ h1 {
 .editPhotoHidden{
   display: none;
 }
+.editPhotoHiddenBtn{
+  display: none;
+}
 .editPhoto{
+  
+  cursor: pointer;
+}
+.cancelEdit{
+  display: none;
+}
+.cancelPhotoPointer{
   
   cursor: pointer;
 }

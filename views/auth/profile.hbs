@@ -15,10 +15,13 @@
     <div>
     <h3>{{user.username}}</h3>
     </div>
-    <div class="editPhoto" onclick="editPhoto()">
+    <div id = "editPhoto" class="editPhoto" onclick="editPhoto()">
       edit
     </div>
-    <div class="editPhotoHidden">
+    <div id="cancelEdit" class="cancelEdit" onclick="cancelEditPhoto()">
+      cancel
+    </div>
+    <div id="editPhotBackHidden" class="editPhotoHidden">
     <form  action="/auth/upload" method="POST" enctype="multipart/form-data">
       <input type="file" name="photo">
       <input type="submit" value="Save">
@@ -85,6 +88,15 @@
 
 function editPhoto(){
   document.querySelector(".editPhotoHidden").className = ""
+  document.querySelector(".cancelEdit").className = "cancelPhotoPointer"
+  document.querySelector(".editPhoto").className="editPhotoHiddenBtn"
+}
+function cancelEditPhoto(){
+    document.querySelector("#editPhotBackHidden").className = "editPhotoHidden"
+      document.querySelector("#editPhoto").className= "editPhoto"
+    {{!-- document.querySelector(".editPhoto").className="" --}}
+    document.querySelector("#cancelEdit").className = "cancelEdit"
+
 }
  
   
