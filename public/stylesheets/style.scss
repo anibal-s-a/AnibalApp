@@ -360,9 +360,12 @@ button .instagram {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   
   // border: 2px solid black;
-  background-image: linear-gradient(#d3d3d3, #505050);
+  background-image: linear-gradient(#d3d3d3, #e2e2e2);
   color: white;
-  
+  box-sizing: border-box;
+  background: transparent;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+
 
   
 }
@@ -373,8 +376,9 @@ button .instagram {
   align-items: center;
   justify-content: center;
   margin-top: 40px;
+  margin-right: 5px;
   padding: 30px;
-  width: 400px;
+  width: 200px;
   height: 20px;
   box-sizing: border-box;
   text-decoration: none;
@@ -382,7 +386,10 @@ button .instagram {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   
   // border: 2px solid black;
-  background-image: linear-gradient(#d3d3d3, #505050);
+  background-image: linear-gradient(#d3d3d3, #e2e2e2);
+  box-sizing: border-box;
+  background: transparent;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 
 
 
