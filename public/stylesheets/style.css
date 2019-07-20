@@ -276,7 +276,8 @@ button .instagram {
   text-decoration: none;
   font-size: 25px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  border: 2px solid black; }
+  background-image: linear-gradient(#d3d3d3, #505050);
+  color: white; }
 
 .eachPlanDate {
   display: flex;
@@ -292,7 +293,7 @@ button .instagram {
   text-decoration: none;
   font-size: 25px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  border: 2px solid black; }
+  background-image: linear-gradient(#d3d3d3, #505050); }
 
 .eachPlanStatusPending {
   display: flex;
@@ -320,7 +321,7 @@ button .instagram {
   width: 100px;
   height: 20px;
   box-sizing: border-box;
-  background-color: #47ad7e; }
+  background-image: linear-gradient(#29f093, #47ad7e); }
 
 .eachPlanStatusFailed {
   display: flex;
@@ -334,7 +335,7 @@ button .instagram {
   width: 100px;
   height: 20px;
   box-sizing: border-box;
-  background-color: #f83636; }
+  background-image: linear-gradient(#fb6c6c, #f83636); }
 
 .planLink {
   text-decoration: none;
